@@ -13,7 +13,7 @@ import view.JDialogAddCroop;
 import view.PrinFrame;
 
 public class AppManager implements ActionListener{
-
+//hola
 	private static final String NAME_FILE_CONFIG = "config.init";
 	private HandlerLanguage config = null;
 	private String languageDefault;
