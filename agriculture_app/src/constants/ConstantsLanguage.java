@@ -32,6 +32,8 @@ public class ConstantsLanguage {
 	public static final String REP_TYPE_PLAN ="Report_Type_Plan";
 	public static final String REP_FILTER ="Report_Filter";
 	
+	public static final String ACCEPT ="Accept";
+	
 	//Table
 	public static final String HARV_AREA = "Harvested_area";
 	public static final String PRICE = "Price";

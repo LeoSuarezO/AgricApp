@@ -1,20 +1,51 @@
 package view;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Graphics;
+
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JDialog;
 import javax.swing.JPanel;
 
+import constants.ConstantsLanguage;
 import constants.ConstantsView;
+import general.HandlerLanguage;
 
-public class ReportTypeCropVsAreaHarv extends JPanel{
+public class ReportTypeCropVsAreaHarv extends JDialog{
 
 	private static final long serialVersionUID = 1L;
+	private ConfigButton accept;
+	private JPanel panel;
 
 	public ReportTypeCropVsAreaHarv(){
 		setSize(550,700);
+		setResizable(false);
+		setLayout(new BorderLayout());
+		setTitle(HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.REP_TYPE_HARV));
+		setIconImage(new ImageIcon(ConstantsView.LOGO_APP).getImage());
+		setBackground(Color.WHITE);
+		setLocationRelativeTo(null);
+		setModal(true);
+		init();
 		setVisible(true);
 	}
-//FDgfdg
+	
+	public void init() {
+		panel = new JPanel();
+		panel.setLayout(new BorderLayout());
+		panel.setBorder(BorderFactory.createEmptyBorder(5, 100, 5, 100));
+		accept = new ConfigButton();
+		accept.buttonTextIcon(ConstantsView.NULL, ConstantsLanguage.ACCEPT, Color.WHITE, true, ConstantsView.BAUHAUS_15_PLAIN, Color.DARK_GRAY);
+		panel.add(accept, BorderLayout.SOUTH);
+	}
+	
+	public void changeLanguage() {
+		
+	}
+	
+
 	public void paint(Graphics g){
 		g.drawRect(80, 40, 300, 560);
 
@@ -92,7 +123,7 @@ public class ReportTypeCropVsAreaHarv extends JPanel{
 		g.setColor(Color.RED);
 		g.fillOval(320, 427, 7,7);
 		g.fillOval(400, 345, 7,7);
-//xd
+
 		g.setColor(Color.black);
 		g.setFont(ConstantsView.BAUHAUS_15_PLAIN);
 		g.drawString("Tipo Cultivo: Verde", 395,125);

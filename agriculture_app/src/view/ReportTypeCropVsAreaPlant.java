@@ -2,14 +2,16 @@ package view;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import javax.swing.JFrame;
 
-public class ReportTypeCropVsAreaPlant extends JFrame{
+import javax.swing.JDialog;
+
+public class ReportTypeCropVsAreaPlant extends JDialog{
 
 	private static final long serialVersionUID = 1L;
 
 	public ReportTypeCropVsAreaPlant(){
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
 		setSize(550,700);
 		setVisible(true);
 	}

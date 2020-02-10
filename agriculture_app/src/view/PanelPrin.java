@@ -3,8 +3,6 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemListener;
-
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -25,14 +23,14 @@ public class PanelPrin extends JPanel{
 	private JLabel lblImage;
 	private PanelReports panelReport;
 
-	public PanelPrin(ActionListener acl, ItemListener itl) {
+	public PanelPrin(ActionListener acl) {
 		setLayout(new BorderLayout());
 		setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
 		setBackground(ConstantsView.GREEN);
-		init(acl, itl);
+		init(acl);
 	}
 
-	public void init(ActionListener acl, ItemListener itl) {
+	public void init(ActionListener acl) {
 		panelNorth = new JPanel();
 		panelL = new PanelNorth(acl);
 		menu = new MenuBar(acl);
@@ -41,7 +39,7 @@ public class PanelPrin extends JPanel{
 		lblImage = new JLabel();
 		panelF = new PanelFooter(acl);
 		panelAdmData = new PanelAdmData(acl);
-		panelReport = new PanelReports(itl);
+		panelReport = new PanelReports(acl);
 		config();
 	}
 
@@ -75,10 +73,6 @@ public class PanelPrin extends JPanel{
 		add(panelReport, BorderLayout.CENTER);
 	}
 	
-	public String getSelectedItem() {
-		return panelReport.getSelectedItem();
-	}
-
 	public void addElementToTable(Object [] obj) {
 		table.addElementToTable(obj);
 	}

@@ -73,19 +73,6 @@ public class PanelPrinDialAddCrop extends JPanel{
 		setTextFieldConfig(txtPlantingArea, ConstantsLanguage.PLANTED_AREA_HOLD, ConstantsLanguage.PLANT_AREA);
 		setTextFieldConfig(txtCosts, ConstantsLanguage.COST_SALE_HOLD, ConstantsLanguage.COSTS);
 		
-//		txtPrice.setPreferredSize(new Dimension(400,45));
-//		txtPrice.setBorder(BorderFactory.createTitledBorder(HandlerLanguage));
-//		initHolder(txtNameCroop, HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.PRICE_CROP_HOLD));
-//		
-//		txtCropArea.setPreferredSize(new Dimension(400,45));
-//		initHolder(txtNameCroop, HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.HARVESTED_AREA_HOLD));
-//		
-//		txtPlantingArea.setPreferredSize(new Dimension(400,45));
-//		initHolder(txtNameCroop, HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.PLANTED_AREA_HOLD));
-//		
-//		txtCosts.setPreferredSize(new Dimension(400,45));
-//		initHolder(txtNameCroop, HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.COST_SALE_HOLD));
-		
 		txtTons.setPreferredSize(new Dimension(400,45));
 		txtTons.setModel(new SpinnerNumberModel(10, 5, 10000, 10));
 		

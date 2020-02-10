@@ -1,8 +1,6 @@
 package view;
 
 import java.awt.event.ActionListener;
-import java.awt.event.ItemListener;
-
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -18,17 +16,17 @@ public class PrinFrame extends JFrame{
 	private PanelPrin panel;
 	private JScrollPane scroll;
 	
-	public PrinFrame(ActionListener acl, ItemListener itl) {
+	public PrinFrame(ActionListener acl) {
 		setIconImage(new ImageIcon(ConstantsView.LOGO_APP).getImage());
 		setTitle(HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.APP_NAME));
 		setExtendedState(MAXIMIZED_BOTH);
-		init(acl, itl);
+		init(acl);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
 	}
 	
-	public void init(ActionListener acl, ItemListener itl) {
-		panel = new PanelPrin(acl, itl);
+	public void init(ActionListener acl) {
+		panel = new PanelPrin(acl);
 		scroll = new JScrollPane(panel);
 		new JOptionPane();
 		scroll.setFocusable(false);
@@ -53,9 +51,7 @@ public class PrinFrame extends JFrame{
 		setExtendedState(MAXIMIZED_BOTH);
 	}
 	
-	public String getSelectedItem() {
-		return panel.getSelectedItem();
-	}
+	
 	public void succes() {
 		JOptionPane.showMessageDialog(this, HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.SUCCES_DATA),  HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.EXPORT), JOptionPane.DEFAULT_OPTION, new ImageIcon(ConstantsView.SUCCES));
 	}

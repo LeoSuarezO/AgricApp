@@ -2,8 +2,6 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.io.IOException;
 import java.util.Locale;
 
@@ -15,9 +13,9 @@ import models.CropTransitory;
 import persistence.Manager;
 import view.JDialogAddCrop;
 import view.PrinFrame;
-import view.TypeReport;
+import view.ReportTypeCropVsAreaHarv;
 
-public class AppManager implements ActionListener, ItemListener{
+public class AppManager implements ActionListener{
 
 	private static final String NAME_FILE_CONFIG = "config.init";
 	private HandlerLanguage config = null;
@@ -30,7 +28,7 @@ public class AppManager implements ActionListener, ItemListener{
 	public AppManager() throws DeserializationException, IOException {
 		loadConfiguration();
 		fileM = new Manager();
-		frame = new PrinFrame(this, this);	
+		frame = new PrinFrame(this);	
 		jDialog = new JDialogAddCrop(this);
 	}
 
@@ -166,21 +164,11 @@ public class AppManager implements ActionListener, ItemListener{
 		case REPORTS:
 			changePanelReport();
 			break;
-		default:
-			break;
-		}
-	}
-
-	@Override
-	public void itemStateChanged(ItemEvent e) {
-		switch (TypeReport.valueOf(frame.getSelectedItem())) {
-		case REPORT_TYPE_HARV:
-			System.out.println("Hola");
+		case REPORT_HARV:
+			new ReportTypeCropVsAreaHarv();
 			break;
 		default:
 			break;
 		}
-		
-	}
-
+	}	
 }

@@ -24,6 +24,7 @@ public class ConstantsView {
 	public static final String ADD_WHITE = "images/addW.png";
 	public static final String EXPORT = "images/export.png";
 	public static final String SUCCES = "images/succes.png";
+	public static final String REPORT_S = "images/report.png";
 	public static final String NULL = " ";
 	
 	public static final Color GREEN = new Color(203, 229, 88);
@@ -33,4 +34,5 @@ public class ConstantsView {
 	public static final Font BAUHAUS_15 = new Font("Bauhaus 93", Font.BOLD, 15);
 	public static final Font BAUHAUS_17_PLAIN = new Font("Bauhaus 93", Font.PLAIN, 17);
 	public static final Font BAUHAUS_17 = new Font("Bauhaus 93", Font.BOLD, 17);
+	public static final Font BAUHAUS_20_PLAIN = new Font("Bauhaus 93", Font.PLAIN, 20);
 }
