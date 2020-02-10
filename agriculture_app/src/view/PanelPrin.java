@@ -3,6 +3,9 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemListener;
+
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -20,13 +23,16 @@ public class PanelPrin extends JPanel{
 	private PanelFooter panelF;
 	private PanelAdmData panelAdmData;
 	private JLabel lblImage;
+	private PanelReports panelReport;
 
-	public PanelPrin(ActionListener acl) {
+	public PanelPrin(ActionListener acl, ItemListener itl) {
 		setLayout(new BorderLayout());
-		init(acl);
+		setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
+		setBackground(ConstantsView.GREEN);
+		init(acl, itl);
 	}
 
-	public void init(ActionListener acl) {
+	public void init(ActionListener acl, ItemListener itl) {
 		panelNorth = new JPanel();
 		panelL = new PanelNorth(acl);
 		menu = new MenuBar(acl);
@@ -35,6 +41,7 @@ public class PanelPrin extends JPanel{
 		lblImage = new JLabel();
 		panelF = new PanelFooter(acl);
 		panelAdmData = new PanelAdmData(acl);
+		panelReport = new PanelReports(itl);
 		config();
 	}
 
@@ -62,9 +69,14 @@ public class PanelPrin extends JPanel{
 		add(panelAdmData, BorderLayout.CENTER);
 	}
 	
-	public void changePanelHome() {
+	public void changePanelReport() {
 		this.remove(aux);
-		aux = this;
+		aux = panelReport;
+		add(panelReport, BorderLayout.CENTER);
+	}
+	
+	public String getSelectedItem() {
+		return panelReport.getSelectedItem();
 	}
 
 	public void addElementToTable(Object [] obj) {
@@ -77,6 +89,7 @@ public class PanelPrin extends JPanel{
 		table.changeLanguage();
 		panelF.changeLanguage();
 		panelAdmData.changeLanguage();
+		panelReport.changeLanguage();
 	}
 
 }

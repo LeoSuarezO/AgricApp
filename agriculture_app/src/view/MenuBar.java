@@ -3,6 +3,7 @@ package view;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
 import constants.ConstantsLanguage;
@@ -20,6 +21,7 @@ public class MenuBar extends JPanel{
 
 	public MenuBar(ActionListener acl) {
 		setBackground(ConstantsView.GREEN);
+		setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 		init(acl);
 	}
 	
