@@ -31,6 +31,7 @@ public class ConstantsLanguage {
 	public static final String REP_TYPE_HARV ="Report_Type_Harv";
 	public static final String REP_TYPE_PLAN ="Report_Type_Plan";
 	public static final String REP_FILTER ="Report_Filter";
+	public static final String REP_TYPE_COUNT = "Report_Type_Count";
 	
 	public static final String ACCEPT ="Accept";
 	

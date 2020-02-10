@@ -3,6 +3,7 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -11,6 +12,7 @@ import javax.swing.JPanel;
 
 import constants.ConstantsLanguage;
 import constants.ConstantsView;
+import controller.Command;
 import general.HandlerLanguage;
 
 public class ReportConutTypeCultive extends JDialog{
@@ -20,28 +22,34 @@ public class ReportConutTypeCultive extends JDialog{
 	private JPanel panel;
 
 
-	public ReportConutTypeCultive() {
+	public ReportConutTypeCultive(ActionListener acl) {
 		setSize(550,700);
-		init();
 		setResizable(false);
 		setLayout(new BorderLayout());
-		setTitle(HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.REP_TYPE_HARV));
+		init(acl);
+		setTitle(HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.REP_TYPE_COUNT));
 		setIconImage(new ImageIcon(ConstantsView.LOGO_APP).getImage());
 		setBackground(Color.WHITE);
 		setLocationRelativeTo(null);
 		setModal(true);
 		setSize(750,570);
-		setVisible(true);
 	}
 	
-	public void init() {
+	public void init(ActionListener acl) {
 		panel = new JPanel();
 		panel.setLayout(new BorderLayout());
 		panel.setBorder(BorderFactory.createEmptyBorder(5, 100, 5, 100));
 		accept = new ConfigButton();
 		accept.buttonTextIcon(ConstantsView.NULL, ConstantsLanguage.ACCEPT, Color.WHITE, true, ConstantsView.BAUHAUS_15_PLAIN, Color.DARK_GRAY);
+		accept.setActionCommand(Command.ACCEPT.name());
+		accept.addActionListener(acl);
 		panel.add(accept, BorderLayout.SOUTH);
 		add(panel, BorderLayout.SOUTH);
+	}
+	
+	public void changeLanguage() {
+		setTitle(HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.REP_TYPE_COUNT));
+		accept.setText(HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.ACCEPT));
 	}
 	
 	public void paint(Graphics g){

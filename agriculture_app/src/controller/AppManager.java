@@ -13,6 +13,7 @@ import models.CropTransitory;
 import persistence.Manager;
 import view.JDialogAddCrop;
 import view.PrinFrame;
+import view.ReportConutTypeCultive;
 import view.ReportTypeCropVsAreaHarv;
 import view.ReportTypeCropVsAreaPlant;
 
@@ -25,12 +26,18 @@ public class AppManager implements ActionListener{
 	private JDialogAddCrop jDialog;
 	public CropManager cropManager; 
 	public Manager fileM;
+	private ReportTypeCropVsAreaHarv reportHarv;
+	private ReportTypeCropVsAreaPlant reportPlant;
+	private ReportConutTypeCultive reportCount;
 
 	public AppManager() throws DeserializationException, IOException {
 		loadConfiguration();
 		fileM = new Manager();
 		frame = new PrinFrame(this);	
 		jDialog = new JDialogAddCrop(this);
+		reportHarv = new ReportTypeCropVsAreaHarv(this);
+		reportPlant = new ReportTypeCropVsAreaPlant(this);
+		reportCount = new ReportConutTypeCultive(this);
 	}
 
 	public void addElementsToTable() {
@@ -118,6 +125,9 @@ public class AppManager implements ActionListener{
 	private void manageChangeLanguage(){
 		frame.changeLanguage();
 		jDialog.changeLanguage();
+		reportCount.changeLanguage();
+		reportHarv.changeLanguage();
+		reportPlant.changeLanguage();
 	}
 	
 
@@ -128,6 +138,10 @@ public class AppManager implements ActionListener{
 	public void exportNewCrops() throws IOException {
 		fileM.writeNewCrops();
 		frame.succes();
+	}
+	
+	public void accept() {
+		
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -166,10 +180,23 @@ public class AppManager implements ActionListener{
 			changePanelReport();
 			break;
 		case REPORT_HARV:
-			new ReportTypeCropVsAreaHarv();
+			reportHarv.setVisible(true);
 			break;
 		case REPORT_PLANT:
-			new ReportTypeCropVsAreaPlant();
+			reportPlant.setVisible(true);
+			break;
+		case REPORT_FILTER:
+			break;
+		case REPORT_COUNT:
+			reportCount.setVisible(true);
+			break;
+		case ACCEPT:
+			reportHarv.dispose();;
+			reportPlant.dispose();
+			reportCount.dispose();
+			break;
+		case CANCEL:
+			jDialog.dispose();
 			break;
 		default:
 			break;
