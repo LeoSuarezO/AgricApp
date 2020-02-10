@@ -39,6 +39,7 @@ public class ReportTypeCropVsAreaHarv extends JDialog{
 		accept = new ConfigButton();
 		accept.buttonTextIcon(ConstantsView.NULL, ConstantsLanguage.ACCEPT, Color.WHITE, true, ConstantsView.BAUHAUS_15_PLAIN, Color.DARK_GRAY);
 		panel.add(accept, BorderLayout.SOUTH);
+		add(panel, BorderLayout.SOUTH);
 	}
 	
 	public void changeLanguage() {

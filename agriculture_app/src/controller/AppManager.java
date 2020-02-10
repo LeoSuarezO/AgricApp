@@ -14,6 +14,7 @@ import persistence.Manager;
 import view.JDialogAddCrop;
 import view.PrinFrame;
 import view.ReportTypeCropVsAreaHarv;
+import view.ReportTypeCropVsAreaPlant;
 
 public class AppManager implements ActionListener{
 
@@ -166,6 +167,9 @@ public class AppManager implements ActionListener{
 			break;
 		case REPORT_HARV:
 			new ReportTypeCropVsAreaHarv();
+			break;
+		case REPORT_PLANT:
+			new ReportTypeCropVsAreaPlant();
 			break;
 		default:
 			break;

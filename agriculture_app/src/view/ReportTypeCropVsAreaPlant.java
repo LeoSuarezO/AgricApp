@@ -1,19 +1,45 @@
 package view;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JDialog;
+import javax.swing.JPanel;
+
+import constants.ConstantsLanguage;
+import constants.ConstantsView;
+import general.HandlerLanguage;
 
 public class ReportTypeCropVsAreaPlant extends JDialog{
 
 	private static final long serialVersionUID = 1L;
+	private ConfigButton accept;
+	private JPanel panel;
 
 	public ReportTypeCropVsAreaPlant(){
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setLocationRelativeTo(null);
 		setSize(550,700);
+		init();
+		setResizable(false);
+		setLayout(new BorderLayout());
+		setTitle(HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.REP_TYPE_PLAN));
+		setIconImage(new ImageIcon(ConstantsView.LOGO_APP).getImage());
+		setBackground(Color.WHITE);
+		setLocationRelativeTo(null);
+		setModal(true);
 		setVisible(true);
+	}
+	
+	public void init() {
+		panel = new JPanel();
+		panel.setLayout(new BorderLayout());
+		panel.setBorder(BorderFactory.createEmptyBorder(5, 100, 5, 100));
+		accept = new ConfigButton();
+		accept.buttonTextIcon(ConstantsView.NULL, ConstantsLanguage.ACCEPT, Color.WHITE, true, ConstantsView.BAUHAUS_15_PLAIN, Color.DARK_GRAY);
+		panel.add(accept, BorderLayout.SOUTH);
+		add(panel, BorderLayout.SOUTH);
 	}
 	
 	public void paint(Graphics g){
