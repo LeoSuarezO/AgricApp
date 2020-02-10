@@ -69,7 +69,7 @@ public class Manager {
 		String stateProd;
 		String priceProd;
 		String costs;
-		BufferedReader buffer = new BufferedReader(new InputStreamReader(getHttpURLConnection(false, "https://www.datos.gov.co/resource/b9ix-pnhg.json")));
+		BufferedReader buffer = new BufferedReader(new InputStreamReader(getHttpURLConnection(true, "https://www.datos.gov.co/resource/b9ix-pnhg.json")));
 		JsonArray jsonCrops = (JsonArray) Jsoner.deserialize(buffer);
 		for (int i = 0; i < jsonCrops.size(); i++) {
 			JsonObject jsonCrop = (JsonObject) jsonCrops.get(i);

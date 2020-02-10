@@ -96,4 +96,8 @@ public class ReportTypeCropVsArea extends JFrame{
 		g.drawString("Vs", 440,215);
 		g.drawString("Area Siembra", 410,235);
 	}
+	
+	public static void main(String[] args) {
+		new ReportTypeCropVsArea();
+	}
 }
