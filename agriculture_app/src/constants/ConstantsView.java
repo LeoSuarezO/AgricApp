@@ -20,6 +20,10 @@ public class ConstantsView {
 	public static final String CENTER = "images/head north.jpg";
 	public static final String MODIFY = "images/modify.png";
 	public static final String DELETE = "images/delete.png";
+	public static final String CANCEL = "images/cancel.png";
+	public static final String ADD_WHITE = "images/addW.png";
+	public static final String EXPORT = "images/export.png";
+	public static final String SUCCES = "images/succes.png";
 	public static final String NULL = " ";
 	
 	public static final Color GREEN = new Color(203, 229, 88);

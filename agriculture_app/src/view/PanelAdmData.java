@@ -20,6 +20,7 @@ public class PanelAdmData extends JPanel{
 	public ConfigButton addCrop;
 	public ConfigButton editCrop;
 	public ConfigButton delCrop;
+	public ConfigButton exportCrop;
 	private GridBagLayout gbl;
 	private GridBagConstraints gbc;
 	
@@ -35,21 +36,27 @@ public class PanelAdmData extends JPanel{
 		addCrop = new ConfigButton();
 		editCrop = new ConfigButton();
 		delCrop = new ConfigButton();
+		exportCrop = new ConfigButton();
 		gbl = new GridBagLayout();
 		gbc = new GridBagConstraints();
 	}
 	
-	public void config(ActionListener control) {
-		addCrop.buttonTextIcon(ConstantsView.ADD, ConstantsLanguage.CREATE_CROP, Color.WHITE, true, ConstantsView.BAUHAUS_17_PLAIN, Color.GRAY);
-		addCrop.setActionCommand(""+Command.ADD_CROOP);
-		addCrop.addActionListener(control);
+	public void config(ActionListener acl) {
+		addCrop.buttonTextIcon(ConstantsView.ADD, ConstantsLanguage.CREATE_CROP, Color.WHITE, true, ConstantsView.BAUHAUS_17_PLAIN, Color.DARK_GRAY);
+		addCrop.setActionCommand(Command.ADD_CROOP.name());
+		addCrop.addActionListener(acl);
 		addCrop.setBorder(new RoundBorder(10));
 		
-		delCrop.buttonTextIcon(ConstantsView.DELETE, ConstantsLanguage.DEL_CROP, Color.WHITE, true, ConstantsView.BAUHAUS_17_PLAIN, Color.GRAY);
+		delCrop.buttonTextIcon(ConstantsView.DELETE, ConstantsLanguage.DEL_CROP, Color.WHITE, true, ConstantsView.BAUHAUS_17_PLAIN, Color.DARK_GRAY);
 		delCrop.setBorder(new RoundBorder(10));
 		
-		editCrop.buttonTextIcon(ConstantsView.MODIFY, ConstantsLanguage.EDIT_CROP, Color.WHITE, true, ConstantsView.BAUHAUS_17_PLAIN, Color.GRAY);
+		editCrop.buttonTextIcon(ConstantsView.MODIFY, ConstantsLanguage.EDIT_CROP, Color.WHITE, true, ConstantsView.BAUHAUS_17_PLAIN, Color.DARK_GRAY);
 		editCrop.setBorder(new RoundBorder(10));
+		
+		exportCrop.buttonTextIcon(ConstantsView.EXPORT, ConstantsLanguage.EXPORT, Color.WHITE, true, ConstantsView.BAUHAUS_17_PLAIN, Color.DARK_GRAY);
+		exportCrop.setActionCommand(Command.EXPORT.name());
+		exportCrop.addActionListener(acl);
+		exportCrop.setBorder(new RoundBorder(10));
 		
 		gbc.gridx = 0;
 		gbc.gridy = 0;
@@ -67,12 +74,17 @@ public class PanelAdmData extends JPanel{
 		gbc.gridx = 0;
 		gbc.gridy = 2;
 		add(editCrop, gbc);
+		
+		gbc.gridx = 0;
+		gbc.gridy = 3;
+		add(exportCrop, gbc);
 	}
 	
 	public void changeLanguage() {
 		addCrop.setText(HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.CREATE_CROP));
 		delCrop.setText(HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.DEL_CROP));
 		editCrop.setText(HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.EDIT_CROP));
+		exportCrop.setText(HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.EXPORT));
 	}
 
 }

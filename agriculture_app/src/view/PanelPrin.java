@@ -61,6 +61,11 @@ public class PanelPrin extends JPanel{
 		aux = panelAdmData;
 		add(panelAdmData, BorderLayout.CENTER);
 	}
+	
+	public void changePanelHome() {
+		this.remove(aux);
+		aux = this;
+	}
 
 	public void addElementToTable(Object [] obj) {
 		table.addElementToTable(obj);
