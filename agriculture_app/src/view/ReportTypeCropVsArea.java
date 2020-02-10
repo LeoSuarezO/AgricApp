@@ -1,14 +1,15 @@
 package view;
 
+import java.awt.Color;
 import java.awt.Graphics;
-import javax.swing.JPanel;
+import javax.swing.JFrame;
 
-public class ReportTypeCropVsArea extends JPanel{
+public class ReportTypeCropVsArea extends JFrame{
 
 	private static final long serialVersionUID = 1L;
 
 	public ReportTypeCropVsArea(){
-		setOpaque(false);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(550,700);
 		setVisible(true);
 	}
@@ -71,14 +72,23 @@ public class ReportTypeCropVsArea extends JPanel{
 		g.drawLine(75, 65, 85, 65);
 
 		g.drawRect(100, 290, 40, 310);
+		g.setColor(Color.BLUE);
+		g.fillRect(100, 290, 40, 310);
 		g.drawString("Tomate", 104,615);
-
+		
+		g.setColor(Color.CYAN);
+		g.fillRect(170, 280, 40, 320);
 		g.drawRect(170, 280, 40, 320);
+		g.setColor(Color.black);
 		g.drawString("Arveja", 174,615);
-
+		
+		g.setColor(Color.GRAY);
+		g.fillRect(240, 420, 40, 180);
 		g.drawRect(240, 420, 40, 180);
 		g.drawString("habichuela", 230,615);
-
+		
+		g.setColor(Color.magenta);
+		g.fillRect(310, 415, 40, 185);
 		g.drawRect(310, 415, 40, 185);
 		g.drawString("hortalizas", 305,615);
 
