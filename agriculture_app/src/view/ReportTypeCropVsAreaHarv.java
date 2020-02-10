@@ -92,7 +92,7 @@ public class ReportTypeCropVsAreaHarv extends JPanel{
 		g.setColor(Color.RED);
 		g.fillOval(320, 427, 7,7);
 		g.fillOval(400, 345, 7,7);
-
+//xd
 		g.setColor(Color.black);
 		g.setFont(ConstantsView.BAUHAUS_15_PLAIN);
 		g.drawString("Tipo Cultivo: Verde", 395,125);
