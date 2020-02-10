@@ -14,7 +14,7 @@ public class ReportTypeCropVsAreaHarv extends JPanel{
 		setSize(550,700);
 		setVisible(true);
 	}
-
+//FDgfdg
 	public void paint(Graphics g){
 		g.drawRect(80, 40, 300, 560);
 
