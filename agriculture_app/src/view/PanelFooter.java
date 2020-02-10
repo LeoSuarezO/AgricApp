@@ -55,12 +55,12 @@ public class PanelFooter extends JPanel{
 		lang.setBackground(ConstantsView.GREEN_FOOTER);
 		lang.setBorder(BorderFactory.createEmptyBorder(100, 0, 20, 20));
 		
-		spanish.buttonTextIcon(ConstantsView.SPAIN, ConstantsLanguage.LANG_ES, ConstantsView.GREEN_FOOTER, true, ConstantsView.BAUHAUS_15, Color.WHITE);
+		spanish.buttonTextIcon(ConstantsView.SPAIN, ConstantsLanguage.LANG_ES, ConstantsView.GREEN_FOOTER, true, ConstantsView.BAUHAUS_15_PLAIN, Color.WHITE);
 		spanish.setActionCommand(Command.LANGUAGE_ES.name());
 		spanish.addActionListener(acl);
 		lang.add(spanish);
 		
-		english.buttonTextIcon(ConstantsView.ENG,  ConstantsLanguage.LANG_US, ConstantsView.GREEN_FOOTER, true, ConstantsView.BAUHAUS_15, Color.WHITE);
+		english.buttonTextIcon(ConstantsView.ENG,  ConstantsLanguage.LANG_US, ConstantsView.GREEN_FOOTER, true, ConstantsView.BAUHAUS_15_PLAIN, Color.WHITE);
 		english.addActionListener(acl);
 		english.setActionCommand(Command.LANGUAGE_ENG.name());
 		lang.add(english);

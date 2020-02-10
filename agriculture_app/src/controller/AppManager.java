@@ -13,7 +13,7 @@ import view.JDialogAddCroop;
 import view.PrinFrame;
 
 public class AppManager implements ActionListener{
-//hola
+	//hola
 	private static final String NAME_FILE_CONFIG = "config.init";
 	private HandlerLanguage config = null;
 	private String languageDefault;
@@ -25,7 +25,12 @@ public class AppManager implements ActionListener{
 	public AppManager() throws DeserializationException, IOException {
 		loadConfiguration();
 		fileM = new Manager();
-		frame = new PrinFrame(this);		
+		frame = new PrinFrame(this);
+		for (int i = 0; i < CropManager.getListCropTr().size(); i++) {
+			if (CropManager.getListCropTr().get(i).getStateProd().equalsIgnoreCase("VERDE")) {
+				System.out.println(CropManager.getListCropTr().get(i));
+			}
+		}
 	}
 
 	public void addElementsToTable() {

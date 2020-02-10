@@ -4,11 +4,11 @@ import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JFrame;
 
-public class ReportTypeCropVsArea extends JFrame{
+public class ReportTypeCropVsAreaPlant extends JFrame{
 
 	private static final long serialVersionUID = 1L;
 
-	public ReportTypeCropVsArea(){
+	public ReportTypeCropVsAreaPlant(){
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(550,700);
 		setVisible(true);

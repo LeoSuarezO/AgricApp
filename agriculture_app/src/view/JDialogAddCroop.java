@@ -5,10 +5,12 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JTextField;
 import constants.ConstantsLanguage;
+import constants.ConstantsView;
 import controller.AppManager;
 import controller.Command;
 
@@ -27,7 +29,8 @@ public class JDialogAddCroop extends JDialog{
 
 	public JDialogAddCroop(AppManager control) {
 		this.setBackground(Color.WHITE);
-		this.setBackground(Color.WHITE);		
+		this.setBackground(Color.WHITE);
+		setIconImage(new ImageIcon(ConstantsView.LOGO_APP).getImage());
 		GridBagLayout gbl = new GridBagLayout();
 		setLayout(gbl);
 		this.setSize( 500, 500 );
