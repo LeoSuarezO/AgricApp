@@ -4,6 +4,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 
 import constants.ConstantsLanguage;
@@ -15,6 +16,7 @@ public class PrinFrame extends JFrame{
 	private static final long serialVersionUID = 1L;
 	private PanelPrin panel;
 	private JScrollPane scroll;
+	private JOptionPane optionPane;
 	
 	public PrinFrame(ActionListener acl) {
 		setIconImage(new ImageIcon(ConstantsView.LOGO_APP).getImage());
@@ -28,6 +30,7 @@ public class PrinFrame extends JFrame{
 	public void init(ActionListener acl) {
 		panel = new PanelPrin(acl);
 		scroll = new JScrollPane(panel);
+		optionPane = new JOptionPane();
 		scroll.setFocusable(false);
 		add(scroll);
 	}
@@ -43,9 +46,14 @@ public class PrinFrame extends JFrame{
 		this.pack();
 		setExtendedState(MAXIMIZED_BOTH);
 	}
+	
+	public void succes() {
+		JOptionPane.showMessageDialog(this, HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.SUCCES_DATA),  HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.EXPORT), JOptionPane.DEFAULT_OPTION, new ImageIcon(ConstantsView.SUCCES));
+	}
 
 	public void changeLanguage() {
 		setTitle(HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.APP_NAME));
+		JOptionPane.showMessageDialog(this, HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.SUCCES_DATA),  HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.EXPORT), JOptionPane.DEFAULT_OPTION, new ImageIcon(ConstantsView.SUCCES));
 		panel.changeLanguage();
 	}
 	

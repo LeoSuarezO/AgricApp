@@ -41,32 +41,32 @@ public class JDialogAddCroop extends JDialog{
 	}
 
 	private void initComponents(AppManager control) {
-		txtNameCroop = new JTextField(ConstantsLanguage.NAME_CROOP);
+		txtNameCroop = new JTextField(ConstantsLanguage.NAME_CROP_HOLD);
 		txtNameCroop.setPreferredSize(new Dimension(400,45));
 		
 		jcTypeCroop = new JComboBox<String>();
 		jcTypeCroop.setPreferredSize(new Dimension(400,85));
 		jcTypeCroop.setBorder(BorderFactory.createTitledBorder(BorderFactory.createMatteBorder (10, 10,
-				10, 10, Color.WHITE), ConstantsLanguage.TYPE_CROOP));
+				10, 10, Color.WHITE), ConstantsLanguage.TYPE_AL));
 		jcTypeCroop.setBackground(Color.WHITE);
 
-		txtPrice = new JTextField(ConstantsLanguage.PRICE_CROOP);
+		txtPrice = new JTextField(ConstantsLanguage.PRICE_CROP_HOLD);
 		txtPrice.setPreferredSize(new Dimension(400,45));
 
-		txtCropArea = new JTextField(ConstantsLanguage.HARVESTED_AREA);
+		txtCropArea = new JTextField(ConstantsLanguage.HARVESTED_AREA_HOLD);
 		txtCropArea.setPreferredSize(new Dimension(400,45));
 
-		txtPlantingArea = new JTextField(ConstantsLanguage.SOWN_AREA);
+		txtPlantingArea = new JTextField(ConstantsLanguage.PLANTED_AREA_HOLD);
 		txtPlantingArea.setPreferredSize(new Dimension(400,45));
 
-		txtCosts = new JTextField(ConstantsLanguage.COST_SALE);
+		txtCosts = new JTextField(ConstantsLanguage.COST_SALE_HOLD);
 		txtCosts.setPreferredSize(new Dimension(400,45));
 
-		txtTons = new JTextField(ConstantsLanguage.TONS_ADD);
+		txtTons = new JTextField(ConstantsLanguage.TONS);
 		txtTons.setPreferredSize(new Dimension(400,45));
 		
 		btnAddCroop = new ConfigButton();
-		btnAddCroop.txt(ConstantsLanguage.ADD_CROP,Color.WHITE,Color.black);
+		btnAddCroop.txt(ConstantsLanguage.CREATE_CROP,Color.WHITE,Color.black);
 		btnAddCroop.addActionListener(control);
 		btnAddCroop.setActionCommand(Command.CREATE_CROOP.name());
 		btnAddCroop.setPreferredSize(new Dimension(200,45));

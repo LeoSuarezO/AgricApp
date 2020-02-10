@@ -9,19 +9,19 @@ public class ConstantsLanguage {
 	public static final String SIGN_UP = "Sign_up";
 	public static final String LOGIN = "Login";
 	
-	public static final String NAME_CROOP = "  	    Ingrese el Nombre del cultivo";
-	public static final String TYPE_CROOP = "                 Seleccione el Tipo de cultivo";
-	public static final String PRICE_CROOP = " 	              Ingrese el Precio del cultivo";
-	public static final String HARVESTED_AREA = "          	           Ingrese el Area Cosechada";
-	public static final String SOWN_AREA = "                           	 Ingrese el Area Sembrada";
-	public static final String COST_SALE =    "  	            Ingrese el Valor de venta";
-	public static final String TONS_ADD = "  	   Ingrese las Toneladas del cultivo";
+	public static final String NAME_CROP_HOLD = "Name_crop_hold";
+	public static final String PRICE_CROP_HOLD = "Price_crop_hold";
+	public static final String HARVESTED_AREA_HOLD = "Harvested_area_hold";
+	public static final String PLANTED_AREA_HOLD = "Planted_area_hold";
+	public static final String COST_SALE_HOLD =    "Cost_hold";
+	public static final String STATE_HOLD =    "type croop";
 	
 	public static final String CREATE_CROP = "Add_crop";
-	public static final String ADD_CROP = "Agregar cultivo";
-	public static final String CANCEL = "Cancelar";
+	public static final String CANCEL = "Cancel";
 	public static final String DEL_CROP = "Del_crop";
 	public static final String EDIT_CROP = "Edit_crop";
+	public static final String EXPORT = "Export";
+	public static final String SUCCES_DATA = "Succes_data";
 	
 	public static final String HOME = "Home";
 	public static final String DATA = "Data";
