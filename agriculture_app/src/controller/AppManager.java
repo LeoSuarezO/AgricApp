@@ -6,45 +6,32 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.io.IOException;
 import java.util.Locale;
+
 import org.json.simple.DeserializationException;
+
 import general.HandlerLanguage;
 import models.CropManager;
 import models.CropTransitory;
 import persistence.Manager;
-import view.JDialogAddCroop;
+import view.JDialogAddCrop;
 import view.PrinFrame;
-import view.ReportTypeCropVsArea;
 import view.TypeReport;
 
-<<<<<<< HEAD
 public class AppManager implements ActionListener, ItemListener{
 
-=======
-public class AppManager implements ActionListener{
-	//hola
->>>>>>> branch 'master' of https://github.com/LeoSuarezO/AgricApp.git
 	private static final String NAME_FILE_CONFIG = "config.init";
 	private HandlerLanguage config = null;
 	private String languageDefault;
 	private PrinFrame frame;
-	private JDialogAddCroop jDialog;
+	private JDialogAddCrop jDialog;
 	public CropManager cropManager; 
 	public Manager fileM;
 
 	public AppManager() throws DeserializationException, IOException {
 		loadConfiguration();
 		fileM = new Manager();
-<<<<<<< HEAD
 		frame = new PrinFrame(this, this);	
 		jDialog = new JDialogAddCrop(this);
-=======
-		frame = new PrinFrame(this);
-		for (int i = 0; i < CropManager.getListCropTr().size(); i++) {
-			if (CropManager.getListCropTr().get(i).getStateProd().equalsIgnoreCase("VERDE")) {
-				System.out.println(CropManager.getListCropTr().get(i));
-			}
-		}
->>>>>>> branch 'master' of https://github.com/LeoSuarezO/AgricApp.git
 	}
 
 	public void addElementsToTable() {
@@ -61,15 +48,7 @@ public class AppManager implements ActionListener{
 	public void changePanelAdm() {
 		frame.changePanelAdm();
 	}
-<<<<<<< HEAD
 	
-	public void changePanelReport() {
-		frame.changePanelReport();
-	}
-	
-=======
-
->>>>>>> branch 'master' of https://github.com/LeoSuarezO/AgricApp.git
 	public String getLanguageDefault(){
 		languageDefault = Locale.getDefault().getLanguage();
 		switch (languageDefault) {
@@ -139,6 +118,17 @@ public class AppManager implements ActionListener{
 
 	private void manageChangeLanguage(){
 		frame.changeLanguage();
+		jDialog.changeLanguage();
+	}
+	
+
+	public void changePanelReport() {
+		frame.changePanelReport();
+	}
+	
+	public void exportNewCrops() throws IOException {
+		fileM.writeNewCrops();
+		frame.succes();
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -157,18 +147,16 @@ public class AppManager implements ActionListener{
 			changePanelAdm();
 			break;
 		case HOME:
-			frame = new PrinFrame(this);
+			
 			break;
 		case CREATE_CROOP:
-			CropManager.createCropTr(jDialog.getTxtNameCroop(),
-					jDialog.getTxtCropArea(), jDialog.getTxtPlantingArea(), jDialog.getTxtTons(), jDialog.getJcTypeCroop(), jDialog.getTxtPrice(), jDialog.getTxtCosts());
+			jDialog.newCrop();
 			addElementsToTable();
 			jDialog.setVisible(false);
 			break;
 		case ADD_CROOP:
-			jDialog = new JDialogAddCroop(this);
+			jDialog.setVisible(true);
 			break;
-<<<<<<< HEAD
 		case EXPORT:
 			try {
 				exportNewCrops();
@@ -178,8 +166,6 @@ public class AppManager implements ActionListener{
 		case REPORTS:
 			changePanelReport();
 			break;
-=======
->>>>>>> branch 'master' of https://github.com/LeoSuarezO/AgricApp.git
 		default:
 			break;
 		}
