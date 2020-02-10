@@ -44,10 +44,10 @@ public class PrivacyFooter extends JPanel{
 		privacyUs.setText(HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.POLICIES));
 		privacyUs.setBorder(BorderFactory.createEmptyBorder(0, 0, 15, 50));
 		
-		privacy.buttonTextIcon(ConstantsView.NULL, ConstantsLanguage.PRIVACY, ConstantsView.GREEN_FOOTER, false, ConstantsView.BAUHAUS_15, Color.white);
-		who.buttonTextIcon(ConstantsView.NULL, ConstantsLanguage.WHO, ConstantsView.GREEN_FOOTER, false, ConstantsView.BAUHAUS_15, Color.white);
-		about.buttonTextIcon(ConstantsView.NULL, ConstantsLanguage.ABOUT, ConstantsView.GREEN_FOOTER, false, ConstantsView.BAUHAUS_15, Color.white);
-		help.buttonTextIcon(ConstantsView.NULL, ConstantsLanguage.HELP, ConstantsView.GREEN_FOOTER, false, ConstantsView.BAUHAUS_15, Color.white);
+		privacy.buttonTextIcon(ConstantsView.NULL, ConstantsLanguage.PRIVACY, ConstantsView.GREEN_FOOTER, false, ConstantsView.BAUHAUS_15_PLAIN, Color.white);
+		who.buttonTextIcon(ConstantsView.NULL, ConstantsLanguage.WHO, ConstantsView.GREEN_FOOTER, false, ConstantsView.BAUHAUS_15_PLAIN, Color.white);
+		about.buttonTextIcon(ConstantsView.NULL, ConstantsLanguage.ABOUT, ConstantsView.GREEN_FOOTER, false, ConstantsView.BAUHAUS_15_PLAIN, Color.white);
+		help.buttonTextIcon(ConstantsView.NULL, ConstantsLanguage.HELP, ConstantsView.GREEN_FOOTER, false, ConstantsView.BAUHAUS_15_PLAIN, Color.white);
 		
 		privacy.setHorizontalAlignment(SwingConstants.LEFT);
 		who.setHorizontalAlignment(SwingConstants.LEFT);

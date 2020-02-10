@@ -2,18 +2,19 @@ package view;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import javax.swing.JFrame;
+import javax.swing.JPanel;
 
-public class ReportTypeCropVsArea extends JFrame{
+import constants.ConstantsView;
+
+public class ReportTypeCropVsAreaHarv extends JPanel{
 
 	private static final long serialVersionUID = 1L;
 
-	public ReportTypeCropVsArea(){
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+	public ReportTypeCropVsAreaHarv(){
 		setSize(550,700);
 		setVisible(true);
 	}
-	
+//FDgfdg
 	public void paint(Graphics g){
 		g.drawRect(80, 40, 300, 560);
 
@@ -71,29 +72,35 @@ public class ReportTypeCropVsArea extends JFrame{
 		g.drawString("9000 -10000", 10, 70);
 		g.drawLine(75, 65, 85, 65);
 
-		g.drawRect(100, 290, 40, 310);
-		g.setColor(Color.BLUE);
-		g.fillRect(100, 290, 40, 310);
-		g.drawString("Tomate", 104,615);
-		
-		g.setColor(Color.CYAN);
-		g.fillRect(170, 280, 40, 320);
-		g.drawRect(170, 280, 40, 320);
-		g.setColor(Color.black);
-		g.drawString("Arveja", 174,615);
-		
-		g.setColor(Color.GRAY);
-		g.fillRect(240, 420, 40, 180);
-		g.drawRect(240, 420, 40, 180);
-		g.drawString("habichuela", 230,615);
-		
-		g.setColor(Color.magenta);
-		g.fillRect(310, 415, 40, 185);
-		g.drawRect(310, 415, 40, 185);
-		g.drawString("hortalizas", 305,615);
+		g.drawLine(80, 600, 105, 295);
+		g.drawLine(105, 295,170,275);
+		g.drawLine(170, 275,250,420);
+		g.drawLine(250, 420,320,427);
 
-		g.drawString("Tipo Cultivo Verde", 395,195);
-		g.drawString("Vs", 440,215);
-		g.drawString("Area Siembra", 410,235);
+		g.setColor(Color.YELLOW);
+		g.fillOval(105, 295, 7,7);
+		g.fillOval(400, 285, 7,7);
+
+		g.setColor(Color.CYAN);
+		g.fillOval(170, 275, 7,7);
+		g.fillOval(400, 315, 7,7);
+
+		g.setColor(Color.GRAY);
+		g.fillOval(250, 420, 7,7);
+		g.fillOval(400, 255, 7,7);
+
+		g.setColor(Color.RED);
+		g.fillOval(320, 427, 7,7);
+		g.fillOval(400, 345, 7,7);
+//xd
+		g.setColor(Color.black);
+		g.setFont(ConstantsView.BAUHAUS_15_PLAIN);
+		g.drawString("Tipo Cultivo: Verde", 395,125);
+		g.drawString("Vs", 440,145);
+		g.drawString("Area Cosecha", 410,165);
+		g.drawString("hortalizas = 593", 410,265);
+		g.drawString("Tomate = 1386", 410,295);
+		g.drawString("Arveja = 1650", 410,325);
+		g.drawString("habichuela = 507", 410,355);
 	}
 }

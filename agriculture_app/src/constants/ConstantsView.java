@@ -29,7 +29,8 @@ public class ConstantsView {
 	public static final Color GREEN = new Color(203, 229, 88);
 	public static final Color ORANGE = new Color(255, 203, 124);
 	public static final Color GREEN_FOOTER = new Color(115, 134, 116);
-	public static final Font BAUHAUS_15 = new Font("Bauhaus 93", Font.PLAIN, 15);
+	public static final Font BAUHAUS_15_PLAIN = new Font("Bauhaus 93", Font.PLAIN, 15);
+	public static final Font BAUHAUS_15 = new Font("Bauhaus 93", Font.BOLD, 15);
 	public static final Font BAUHAUS_17_PLAIN = new Font("Bauhaus 93", Font.PLAIN, 17);
 	public static final Font BAUHAUS_17 = new Font("Bauhaus 93", Font.BOLD, 17);
 }

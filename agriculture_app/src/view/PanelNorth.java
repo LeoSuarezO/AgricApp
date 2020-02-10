@@ -42,12 +42,12 @@ public class PanelNorth extends JPanel{
 		panelLogo.add(logo, BorderLayout.WEST);
 		add(panelLogo);
 		
-		spanish.buttonTextIcon(ConstantsView.SPAIN, ConstantsLanguage.LANG_ES, ConstantsView.ORANGE, false, ConstantsView.BAUHAUS_15, Color.WHITE);
+		spanish.buttonTextIcon(ConstantsView.SPAIN, ConstantsLanguage.LANG_ES, ConstantsView.ORANGE, false, ConstantsView.BAUHAUS_15_PLAIN, Color.WHITE);
 		spanish.setActionCommand(Command.LANGUAGE_ES.name());
 		spanish.addActionListener(acl);
 		add(spanish);
 		
-		english.buttonTextIcon(ConstantsView.ENG,  ConstantsLanguage.LANG_US, ConstantsView.ORANGE, false, ConstantsView.BAUHAUS_15, Color.WHITE);
+		english.buttonTextIcon(ConstantsView.ENG,  ConstantsLanguage.LANG_US, ConstantsView.ORANGE, false, ConstantsView.BAUHAUS_15_PLAIN, Color.WHITE);
 		english.addActionListener(acl);
 		english.setActionCommand(Command.LANGUAGE_ENG.name());
 		add(english);

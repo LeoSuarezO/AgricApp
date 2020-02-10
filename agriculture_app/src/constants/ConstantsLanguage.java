@@ -14,6 +14,7 @@ public class ConstantsLanguage {
 	public static final String HARVESTED_AREA_HOLD = "Harvested_area_hold";
 	public static final String PLANTED_AREA_HOLD = "Planted_area_hold";
 	public static final String COST_SALE_HOLD =    "Cost_hold";
+	public static final String STATE_HOLD =    "type croop";
 	
 	public static final String CREATE_CROP = "Add_crop";
 	public static final String CANCEL = "Cancel";

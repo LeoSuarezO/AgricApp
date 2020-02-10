@@ -45,7 +45,7 @@ public class ContactFooter extends JPanel{
 		
 		info.setBackground(ConstantsView.GREEN_FOOTER);
 		info.setText(HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.CONTACT_INFO));
-		info.setFont(ConstantsView.BAUHAUS_15);
+		info.setFont(ConstantsView.BAUHAUS_15_PLAIN);
 		info.setForeground(Color.WHITE);
 		info.setEditable(false);
 		add(info, BorderLayout.CENTER);

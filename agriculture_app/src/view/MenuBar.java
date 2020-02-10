@@ -34,22 +34,22 @@ public class MenuBar extends JPanel{
 	}
 	
 	public void config(ActionListener acl) {
-		home.buttonTextIcon(ConstantsView.HOME, ConstantsLanguage.HOME, ConstantsView.GREEN, true, ConstantsView.BAUHAUS_15, Color.WHITE);
+		home.buttonTextIcon(ConstantsView.HOME, ConstantsLanguage.HOME, ConstantsView.GREEN, true, ConstantsView.BAUHAUS_15_PLAIN, Color.WHITE);
 		home.addActionListener(acl);
 		home.setActionCommand(Command.HOME.name());
 		add(home);
 		
-		data.buttonTextIcon(ConstantsView.DATA, ConstantsLanguage.DATA, ConstantsView.GREEN, true, ConstantsView.BAUHAUS_15, Color.WHITE);
+		data.buttonTextIcon(ConstantsView.DATA, ConstantsLanguage.DATA, ConstantsView.GREEN, true, ConstantsView.BAUHAUS_15_PLAIN, Color.WHITE);
 		data.addActionListener(acl);
 		data.setActionCommand(Command.DATA.name());
 		add(data);
 		
-		reports.buttonTextIcon(ConstantsView.REPORTS, ConstantsLanguage.REPORTS, ConstantsView.GREEN, true, ConstantsView.BAUHAUS_15, Color.WHITE);
+		reports.buttonTextIcon(ConstantsView.REPORTS, ConstantsLanguage.REPORTS, ConstantsView.GREEN, true, ConstantsView.BAUHAUS_15_PLAIN, Color.WHITE);
 		reports.addActionListener(acl);
 		reports.setActionCommand(Command.REPORTS.name());
 		add(reports);
 		
-		gestData.buttonTextIcon(ConstantsView.MANAGE_DATA, ConstantsLanguage.GEST_DT, ConstantsView.GREEN, true, ConstantsView.BAUHAUS_15, Color.WHITE);
+		gestData.buttonTextIcon(ConstantsView.MANAGE_DATA, ConstantsLanguage.GEST_DT, ConstantsView.GREEN, true, ConstantsView.BAUHAUS_15_PLAIN, Color.WHITE);
 		gestData.addActionListener(acl);
 		gestData.setActionCommand(Command.MANAGE_DATA.name());
 		add(gestData);

@@ -1,11 +1,11 @@
 package test;
 
-import view.ReportTypeCropVsArea;
+import view.ReportTypeCropVsAreaHarv;
 
 public class TestReport {
 	
 	public static void main(String[] args) {
-		new ReportTypeCropVsArea();
+		new ReportTypeCropVsAreaHarv();
 	}
 	
 }
