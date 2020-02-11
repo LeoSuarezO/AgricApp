@@ -22,12 +22,11 @@ import constants.ConstantsView;
 import controller.Command;
 import general.HandlerLanguage;
 import models.CropManager;
+import models.CropTransitory;
 
 public class PanelPrinDialAddCrop extends JPanel{
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	private JTextField txtNameCrop;
 	private JComboBox<String> jcTypeCroop;
@@ -159,7 +158,8 @@ public class PanelPrinDialAddCrop extends JPanel{
 	
 	public void newCrop() {
 		CropManager.newCrops(txtNameCrop.getText(),txtCropArea.getText(), txtPlantingArea.getText(), txtTons.getValue().toString(), jcTypeCroop.getSelectedItem().toString(), txtPrice.getText(), txtCosts.getText());
-		CropManager.createCropTr(txtNameCrop.getText(),txtCropArea.getText(), txtPlantingArea.getText(), txtTons.getValue().toString(), jcTypeCroop.getSelectedItem().toString(), txtPrice.getText(), txtCosts.getText());
+		CropTransitory croopNew = new CropTransitory(txtNameCrop.getText(),txtCropArea.getText(), txtPlantingArea.getText(), txtTons.getValue().toString(), jcTypeCroop.getSelectedItem().toString(), txtPrice.getText(), txtCosts.getText());
+		CropManager.createCropTr(croopNew);
 	}
 	
 	public void changeLanguage() {
