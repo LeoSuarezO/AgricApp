@@ -60,7 +60,7 @@ public class PrinFrame extends JFrame{
 	}
 	
 	public void clearTable() {
-		
+		panel.clearTable();
 	}
 	
 	public void succes() {

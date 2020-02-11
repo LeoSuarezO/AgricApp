@@ -7,9 +7,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 
-import constants.ConstantsLanguage;
 import constants.ConstantsView;
-import general.HandlerLanguage;
 
 public class PanelReportFilter extends JPanel{
 
@@ -43,7 +41,7 @@ public class PanelReportFilter extends JPanel{
 	}
 	
 	public void clearTable() {
-		table = new TableFilter();
+		table.clearTable();
 	}
 	
 	public void addElementsToTable(Object [] obj) {
@@ -54,8 +52,6 @@ public class PanelReportFilter extends JPanel{
 		return comboFilter.getSelectedItem().toString();
 	}
 	public void changeLanguage() {
-//		types = new String [] {HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.FRUITS), HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.GREEN), HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.SEEDS)};
-//		comboFilter.setModel(new DefaultComboBoxModel<String>(types));
 		table.changeLanguage();
 	}
 

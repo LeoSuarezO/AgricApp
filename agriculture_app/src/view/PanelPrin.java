@@ -65,6 +65,7 @@ public class PanelPrin extends JPanel{
 	
 	public void changePanleFilter() {
 		this.remove(aux);
+		panelFilter.clearTable();
 		aux = panelFilter;
 		add(panelFilter, BorderLayout.CENTER);
 	}

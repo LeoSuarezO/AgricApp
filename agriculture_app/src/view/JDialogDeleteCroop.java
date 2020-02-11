@@ -7,6 +7,7 @@ import java.awt.Insets;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -16,7 +17,7 @@ import com.placeholder.PlaceHolder;
 import constants.ConstantsView;
 import general.HandlerLanguage;
 
-public class JDialogDeleteCroop extends JPanel{
+public class JDialogDeleteCroop extends JDialog{
 
 	private static final long serialVersionUID = 1L;
 	private JTextField txtIdCroop;

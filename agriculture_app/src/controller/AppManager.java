@@ -9,7 +9,6 @@ import java.util.Locale;
 
 import org.json.simple.DeserializationException;
 
-import constants.ConstantsLanguage;
 import general.HandlerLanguage;
 import models.CropManager;
 import models.CropTransitory;
@@ -145,7 +144,9 @@ public class AppManager implements ActionListener, ItemListener{
 	}
 	
 	public void accept() {
-		
+		reportHarv.dispose();
+		reportPlant.dispose();
+		reportCount.dispose();
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -196,9 +197,7 @@ public class AppManager implements ActionListener, ItemListener{
 			reportCount.setVisible(true);
 			break;
 		case ACCEPT:
-			reportHarv.dispose();;
-			reportPlant.dispose();
-			reportCount.dispose();
+			accept();
 			break;
 		case CANCEL:
 			jDialog.dispose();
@@ -210,6 +209,7 @@ public class AppManager implements ActionListener, ItemListener{
 
 	@Override
 	public void itemStateChanged(ItemEvent e) {
+		frame.changePanelFilter();
 		for (int i = 0; i < CropManager.getListCropTr().size(); i++) {
 			CropTransitory crop = CropManager.getListCropTr().get(i);
 			if(frame.getSelecItemFilter().equals("Fruta")) {

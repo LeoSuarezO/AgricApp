@@ -73,7 +73,6 @@ public class Manager {
 		String plantedArea;
 		String stateProd;
 		String priceProd;
-		//kjshdfkjs
 		String costs;
 		BufferedReader buffer = new BufferedReader(new InputStreamReader(getHttpURLConnection(false, "https://www.datos.gov.co/resource/b9ix-pnhg.json")));
 		JsonArray jsonCrops = (JsonArray) Jsoner.deserialize(buffer);
@@ -90,7 +89,7 @@ public class Manager {
 			CropTransitory croopAdd = new CropTransitory(crop, harvestedArea, plantedArea, tons, stateProd, priceProd, costs);
 			count++;
 			CropManager.createCropTr(croopAdd);
-			croopAdd.setIdCroop(count);;
+			croopAdd.setIdCroop(count);
 
 		}
 	}
