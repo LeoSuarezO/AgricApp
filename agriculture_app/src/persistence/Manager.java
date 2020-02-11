@@ -1,6 +1,10 @@
 package persistence;
 
 import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.EOFException;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,6 +23,7 @@ import org.json.simple.JsonObject;
 import org.json.simple.Jsoner;
 
 import models.CropManager;
+import models.CropTransitory;
 
 public class Manager {
 
@@ -71,6 +76,7 @@ public class Manager {
 		String costs;
 		BufferedReader buffer = new BufferedReader(new InputStreamReader(getHttpURLConnection(false, "https://www.datos.gov.co/resource/b9ix-pnhg.json")));
 		JsonArray jsonCrops = (JsonArray) Jsoner.deserialize(buffer);
+		int count=0;
 		for (int i = 0; i < jsonCrops.size(); i++) {
 			JsonObject jsonCrop = (JsonObject) jsonCrops.get(i);
 			crop = jsonCrop.getString("cultivos");
@@ -80,28 +86,64 @@ public class Manager {
 			stateProd = jsonCrop.getString("consolidado_evaluacion_ano_2013_del_produc");
 			priceProd = jsonCrop.getString("consolidado_evaluacion_ano_2013_estado_precio_al_producr_ton");
 			costs = jsonCrop.getString("consolidado_evaluacion_ano_2013_costos_de_produc_ha");
-			CropManager.createCropTr(crop, harvestedArea, plantedArea, tons, stateProd, priceProd, costs);
+			CropTransitory croopAdd = new CropTransitory(crop, harvestedArea, plantedArea, tons, stateProd, priceProd, costs);
+			count++;
+			CropManager.createCropTr(croopAdd);
+			croopAdd.setIdCroop(count);;
+
 		}
 	}
-	
-	public void writeNewCrops() throws IOException {
-			JsonArray cropArray = new JsonArray();
-			for (int i = 0; i < CropManager.listNewCrops.size(); i++) {
-				JsonObject cropObject = new JsonObject();
-				cropObject.put("Cultivo: ", CropManager.listNewCrops.get(i).getCrop());
-				cropObject.put("Area sembrada: : ", CropManager.listNewCrops.get(i).getPlantedArea());
-				cropObject.put("Area cosechada: ", CropManager.listNewCrops.get(i).getHarvestedArea());
-				cropObject.put("Tipo cultivo: ", CropManager.listNewCrops.get(i).getStateProd());
-				cropObject.put("Cantidad (Ton): ", CropManager.listNewCrops.get(i).getTons());
-				cropObject.put("Costos: ", CropManager.listNewCrops.get(i).getCosts());
-				cropObject.put("Precio producto: ", CropManager.listNewCrops.get(i).getPriceProd());
-				cropArray.add(cropObject);
-			}
 
-			FileWriter fw = new FileWriter("resources/NewCrops.json");
-			fw.write(cropArray.toJson());
-			fw.flush();
-			fw.close();
-			
+	public void writeNewCrops() throws IOException {
+		JsonArray cropArray = new JsonArray();
+		for (int i = 0; i < CropManager.listNewCrops.size(); i++) {
+			JsonObject cropObject = new JsonObject();
+			cropObject.put("Cultivo: ", CropManager.listNewCrops.get(i).getCrop());
+			cropObject.put("Area sembrada: : ", CropManager.listNewCrops.get(i).getPlantedArea());
+			cropObject.put("Area cosechada: ", CropManager.listNewCrops.get(i).getHarvestedArea());
+			cropObject.put("Tipo cultivo: ", CropManager.listNewCrops.get(i).getStateProd());
+			cropObject.put("Cantidad (Ton): ", CropManager.listNewCrops.get(i).getTons());
+			cropObject.put("Costos: ", CropManager.listNewCrops.get(i).getCosts());
+			cropObject.put("Precio producto: ", CropManager.listNewCrops.get(i).getPriceProd());
+			cropArray.add(cropObject);
 		}
+
+		FileWriter fw = new FileWriter("resources/NewCrops.json");
+		fw.write(cropArray.toJson());
+		fw.flush();
+		fw.close();
+
+	}
+
+	public void readStringToBinary(String url) {
+		FileInputStream file = null;
+		DataInputStream dataImput = null;
+		String entradaString;
+		try {
+			file = new FileInputStream(url);
+			dataImput = new DataInputStream(file);
+			while (true) { 
+				entradaString = dataImput.readUTF();  
+				System.out.println(entradaString + "XD");
+			}
+		} catch (FileNotFoundException e) {
+			System.out.println(e.getMessage());
+		} catch (EOFException e) {
+			System.out.println("Fin de fichero");
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				if (file != null) {
+					file.close();
+				}
+				if (dataImput != null) {
+					dataImput.close();
+				}
+			} catch (IOException e) {
+				System.out.println(e.getMessage());
+			}
+		}
+	}
+
 }

@@ -15,14 +15,14 @@ import constants.ConstantsView;
 import controller.Command;
 import general.HandlerLanguage;
 
-public class ReportConutTypeCultive extends JDialog{
+public class ReportCountTypeCultive extends JDialog{
 
 	private static final long serialVersionUID = 1L;
 	private ConfigButton accept;
 	private JPanel panel;
 
 
-	public ReportConutTypeCultive(ActionListener acl) {
+	public ReportCountTypeCultive(ActionListener acl) {
 		setSize(550,700);
 		setResizable(false);
 		setLayout(new BorderLayout());

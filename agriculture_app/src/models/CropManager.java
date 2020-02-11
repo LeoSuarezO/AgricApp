@@ -11,13 +11,15 @@ public class CropManager {
 		listCropTr = new ArrayList<CropTransitory>();
 	}
 
-	public static  void createCropTr(String crop, String harvestedArea, String plantedArea, String tons, String stateProd, String priceProd, String costs) {
-		listCropTr.add(new CropTransitory(crop, harvestedArea, plantedArea, tons, stateProd, priceProd, costs));
+	public static  void createCropTr(CropTransitory crop) {
+		listCropTr.add(crop);
 	}
 	
 	public static void newCrops(String crop, String harvestedArea, String plantedArea, String tons, String stateProd, String priceProd, String costs) {
 		listNewCrops.add(new CropTransitory(crop, harvestedArea, plantedArea, tons, stateProd, priceProd, costs));
 	}
+	
+	
 
 	public static  ArrayList<CropTransitory> getListCropTr() {
 		return listCropTr;
