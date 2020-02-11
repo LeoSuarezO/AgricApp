@@ -34,7 +34,7 @@ public class CropManager {
 		listNewCrops.add(new CropTransitory(crop, harvestedArea, plantedArea, tons, stateProd, priceProd, costs));
 	}
 
-	public void deleteCroop(int idCroop) {
+	public static void deleteCroop(int idCroop) {
 		for (int i = 0; i < listCropTr.size(); i++) {
 			if (listCropTr.get(i).getIdCroop() == idCroop) {
 				listCropTr.remove(i);

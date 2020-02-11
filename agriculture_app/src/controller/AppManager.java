@@ -14,6 +14,7 @@ import models.CropManager;
 import models.CropTransitory;
 import persistence.Manager;
 import view.JDialogAddCrop;
+import view.JDialogDeleteCroop;
 import view.JDialogModifyCroop;
 import view.PrinFrame;
 import view.ReportCountTypeCultive;
@@ -29,6 +30,7 @@ public class AppManager implements ActionListener, ItemListener{
 	private static PrinFrame frame;
 	private JDialogAddCrop jDialogAdd;
 	private JDialogModifyCroop jDialogModify;
+	private JDialogDeleteCroop jDialogDelete;
 //=======
 //	private PrinFrame frame;
 	private JDialogAddCrop jDialog;
@@ -43,7 +45,8 @@ public class AppManager implements ActionListener, ItemListener{
 		loadConfiguration();
 		fileM = new Manager();
 //<<<<<<< HEAD
-//		frame = new PrinFrame(this);	
+//		frame = new PrinFrame(this);
+		jDialogDelete = new JDialogDeleteCroop(this);
 		jDialogAdd = new JDialogAddCrop(this);
 		jDialogModify = new JDialogModifyCroop(this);
 //=======
@@ -189,8 +192,16 @@ public class AppManager implements ActionListener, ItemListener{
 			jDialogModify.modifyCroop();
 			addElementsToTable();
 			jDialogModify.setVisible(false);
+			break;
+		case DELETE:
+			jDialogDelete.deleteCroop();
+			addElementsToTable();
+			jDialogDelete.setVisible(false);
 		case ADD_CROOP:
 			jDialogAdd.setVisible(true);
+			break;
+		case DELETE_CROOP:
+			jDialogDelete.setVisible(true);
 			break;
 		case EXPORT:
 			try {
