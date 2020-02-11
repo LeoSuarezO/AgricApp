@@ -2,6 +2,8 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.io.IOException;
 import java.util.Locale;
 
@@ -18,12 +20,12 @@ import view.ReportCountTypeCultive;
 import view.ReportTypeCropVsAreaHarv;
 import view.ReportTypeCropVsAreaPlant;
 
-public class AppManager implements ActionListener{
+public class AppManager implements ActionListener, ItemListener{
 
 	private static final String NAME_FILE_CONFIG = "config.init";
 	private HandlerLanguage config = null;
 	private String languageDefault;
-	private static PrinFrame frame;
+	private PrinFrame frame;
 	private JDialogAddCrop jDialog;
 	public CropManager cropManager; 
 	public Manager fileM;
@@ -34,17 +36,12 @@ public class AppManager implements ActionListener{
 	public AppManager() throws DeserializationException, IOException {
 		loadConfiguration();
 		fileM = new Manager();
-		frame = new PrinFrame(this);	
+		frame = new PrinFrame(this, this);	
 		jDialog = new JDialogAddCrop(this);
 		reportHarv = new ReportTypeCropVsAreaHarv(this);
 		reportPlant = new ReportTypeCropVsAreaPlant(this);
 		reportCount = new ReportCountTypeCultive(this);
-		for (int i = 0; i < CropManager.getListCropTr().size(); i++) {
-			System.out.println(CropManager.getListCropTr().get(i));
-		}
 	}
-
-
 
 	public void addElementsToTable() {
 		for (int i = 0; i < CropManager.getListCropTr().size(); i++) {
@@ -53,16 +50,6 @@ public class AppManager implements ActionListener{
 		}
 	}
 	
-	public static void filterElemntsTable(String type) {
-			for (int i = 0; i < CropManager.getListCropTr().size(); i++) {
-				if(type.equals(HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.FRUITS))) {
-				CropTransitory crop = CropManager.getListCropTr().get(i);
-				if(crop.getStateProd().equals(HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.FRUITS))) {
-					frame.addElementsToTableFilter(crop.toObjectVector());
-				}
-			}
-		}
-	}
 
 	public void changePanelT() {
 		frame.changePanelT();
@@ -71,7 +58,7 @@ public class AppManager implements ActionListener{
 	public void changePanelAdm() {
 		frame.changePanelAdm();
 	}
-
+	
 	public String getLanguageDefault(){
 		languageDefault = Locale.getDefault().getLanguage();
 		switch (languageDefault) {
@@ -146,18 +133,19 @@ public class AppManager implements ActionListener{
 		reportHarv.changeLanguage();
 		reportPlant.changeLanguage();
 	}
+	
 
 	public void changePanelReport() {
 		frame.changePanelReport();
 	}
-
+	
 	public void exportNewCrops() throws IOException {
 		fileM.writeNewCrops();
 		frame.succes();
 	}
-
+	
 	public void accept() {
-
+		
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -176,7 +164,7 @@ public class AppManager implements ActionListener{
 			changePanelAdm();
 			break;
 		case HOME:
-
+			
 			break;
 		case CREATE_CROOP:
 			jDialog.newCrop();
@@ -218,5 +206,27 @@ public class AppManager implements ActionListener{
 		default:
 			break;
 		}
+	}
+
+	@Override
+	public void itemStateChanged(ItemEvent e) {
+		for (int i = 0; i < CropManager.getListCropTr().size(); i++) {
+			CropTransitory crop = CropManager.getListCropTr().get(i);
+			if(frame.getSelecItemFilter().equals("Fruta")) {
+					if(crop.getStateProd().equals("FRUTA")) {
+						frame.addElementsToTableFilter(crop.toObjectVector());
+					}
+				}
+				if(frame.getSelecItemFilter().equals("Verde")) {
+					if(crop.getStateProd().equals("VERDE")) {
+						frame.addElementsToTableFilter(crop.toObjectVector());
+					}
+				}
+				if(frame.getSelecItemFilter().equals("Semilla")) {
+					if(crop.getStateProd().equals("SEMILLA")) {
+						frame.addElementsToTableFilter(crop.toObjectVector());
+					}
+				}
+			}
 	}	
 }
