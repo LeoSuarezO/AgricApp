@@ -26,9 +26,7 @@ import models.CropTransitory;
 
 public class PanelPrinDialAddCrop extends JPanel{
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	private JTextField txtNameCrop;
 	private JComboBox<String> jcTypeCroop;
