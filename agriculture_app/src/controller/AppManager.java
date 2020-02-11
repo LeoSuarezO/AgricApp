@@ -14,6 +14,7 @@ import models.CropManager;
 import models.CropTransitory;
 import persistence.Manager;
 import view.JDialogAddCrop;
+import view.JDialogModifyCroop;
 import view.PrinFrame;
 import view.ReportCountTypeCultive;
 import view.ReportTypeCropVsAreaHarv;
@@ -24,8 +25,14 @@ public class AppManager implements ActionListener, ItemListener{
 	private static final String NAME_FILE_CONFIG = "config.init";
 	private HandlerLanguage config = null;
 	private String languageDefault;
-	private PrinFrame frame;
+//<<<<<<< HEAD
+	private static PrinFrame frame;
+	private JDialogAddCrop jDialogAdd;
+	private JDialogModifyCroop jDialogModify;
+//=======
+//	private PrinFrame frame;
 	private JDialogAddCrop jDialog;
+//>>>>>>> branch 'master' of https://github.com/LeoSuarezO/AgricApp.git
 	public CropManager cropManager; 
 	public Manager fileM;
 	private ReportTypeCropVsAreaHarv reportHarv;
@@ -35,8 +42,14 @@ public class AppManager implements ActionListener, ItemListener{
 	public AppManager() throws DeserializationException, IOException {
 		loadConfiguration();
 		fileM = new Manager();
+//<<<<<<< HEAD
+//		frame = new PrinFrame(this);	
+		jDialogAdd = new JDialogAddCrop(this);
+		jDialogModify = new JDialogModifyCroop(this);
+//=======
 		frame = new PrinFrame(this, this);	
 		jDialog = new JDialogAddCrop(this);
+//>>>>>>> branch 'master' of https://github.com/LeoSuarezO/AgricApp.git
 		reportHarv = new ReportTypeCropVsAreaHarv(this);
 		reportPlant = new ReportTypeCropVsAreaPlant(this);
 		reportCount = new ReportCountTypeCultive(this);
@@ -127,7 +140,7 @@ public class AppManager implements ActionListener, ItemListener{
 
 	private void manageChangeLanguage(){
 		frame.changeLanguage();
-		jDialog.changeLanguage();
+		jDialogAdd.changeLanguage();
 		reportCount.changeLanguage();
 		reportHarv.changeLanguage();
 		reportPlant.changeLanguage();
@@ -168,12 +181,16 @@ public class AppManager implements ActionListener, ItemListener{
 			
 			break;
 		case CREATE_CROOP:
-			jDialog.newCrop();
+			jDialogAdd.newCrop();
 			addElementsToTable();
-			jDialog.setVisible(false);
+			jDialogAdd.setVisible(false);
 			break;
+		case MODIFY:
+			jDialogModify.modifyCroop();
+			addElementsToTable();
+			jDialogModify.setVisible(false);
 		case ADD_CROOP:
-			jDialog.setVisible(true);
+			jDialogAdd.setVisible(true);
 			break;
 		case EXPORT:
 			try {
@@ -200,8 +217,11 @@ public class AppManager implements ActionListener, ItemListener{
 			accept();
 			break;
 		case CANCEL:
-			jDialog.dispose();
+			jDialogAdd.dispose();
 			break;
+		case EDITE_CROOP:
+			jDialogModify.setVisible(true);
+			break;		
 		default:
 			break;
 		}

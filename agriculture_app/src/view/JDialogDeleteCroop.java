@@ -11,11 +11,7 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
-import com.placeholder.PlaceHolder;
-
 import constants.ConstantsView;
-import general.HandlerLanguage;
 
 public class JDialogDeleteCroop extends JDialog{
 
