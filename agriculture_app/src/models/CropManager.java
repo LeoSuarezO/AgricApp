@@ -14,10 +14,17 @@ public class CropManager {
 	public static  void createCropTr(CropTransitory crop) {
 		listCropTr.add(crop);
 	}
-
-	private void modifyCroop(CropTransitory croop) {
+	public boolean check(int idCroop) {
 		for (int i = 0; i < listCropTr.size(); i++) {
-			if (listCropTr.get(i).getIdCroop() == croop.getIdCroop()) {
+			if (listCropTr.get(i).getIdCroop() == idCroop) {
+				return true;
+			}
+		}
+		return false;
+	}
+	public static void modifyCroop(CropTransitory croop,int idCroop) {
+		for (int i = 0; i < listCropTr.size(); i++) {
+			if (listCropTr.get(i).getIdCroop() == idCroop) {
 				listCropTr.set(i, croop);
 			}
 		}
@@ -27,7 +34,7 @@ public class CropManager {
 		listNewCrops.add(new CropTransitory(crop, harvestedArea, plantedArea, tons, stateProd, priceProd, costs));
 	}
 
-	private void deleteCroop(int idCroop) {
+	public void deleteCroop(int idCroop) {
 		for (int i = 0; i < listCropTr.size(); i++) {
 			if (listCropTr.get(i).getIdCroop() == idCroop) {
 				listCropTr.remove(i);

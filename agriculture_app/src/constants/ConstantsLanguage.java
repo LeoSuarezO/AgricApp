@@ -9,6 +9,7 @@ public class ConstantsLanguage {
 	public static final String SIGN_UP = "Sign_up";
 	public static final String LOGIN = "Login";
 	
+	public static final String ID_CROP_HOLD = "Id_crop_hold";
 	public static final String NAME_CROP_HOLD = "Name_crop_hold";
 	public static final String PRICE_CROP_HOLD = "Price_crop_hold";
 	public static final String HARVESTED_AREA_HOLD = "Harvested_area_hold";
@@ -16,7 +17,7 @@ public class ConstantsLanguage {
 	public static final String COST_SALE_HOLD =    "Cost_hold";
 	public static final String STATE_HOLD =    "type croop";
 	
-	public static final String CREATE_CROP = "Add_crop";
+	public static final String CREATE_CROP = "Acept_crop";
 	public static final String CANCEL = "Cancel";
 	public static final String DEL_CROP = "Del_crop";
 	public static final String EDIT_CROP = "Edit_crop";
@@ -43,6 +44,7 @@ public class ConstantsLanguage {
 	public static final String PRICE = "Price";
 	public static final String TYPE_AL = "Type_al";
 	public static final String CROP = "Crop";
+	public static final String Id = "id";
 	public static final String PLANT_AREA = "Planted_area";
 	public static final String TONS = "Tons";
 	public static final String COSTS = "Costs";

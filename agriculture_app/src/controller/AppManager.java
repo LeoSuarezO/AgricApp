@@ -13,6 +13,7 @@ import models.CropManager;
 import models.CropTransitory;
 import persistence.Manager;
 import view.JDialogAddCrop;
+import view.JDialogModifyCroop;
 import view.PrinFrame;
 import view.ReportCountTypeCultive;
 import view.ReportTypeCropVsAreaHarv;
@@ -24,7 +25,8 @@ public class AppManager implements ActionListener{
 	private HandlerLanguage config = null;
 	private String languageDefault;
 	private static PrinFrame frame;
-	private JDialogAddCrop jDialog;
+	private JDialogAddCrop jDialogAdd;
+	private JDialogModifyCroop jDialogModify;
 	public CropManager cropManager; 
 	public Manager fileM;
 	private ReportTypeCropVsAreaHarv reportHarv;
@@ -35,7 +37,8 @@ public class AppManager implements ActionListener{
 		loadConfiguration();
 		fileM = new Manager();
 		frame = new PrinFrame(this);	
-		jDialog = new JDialogAddCrop(this);
+		jDialogAdd = new JDialogAddCrop(this);
+		jDialogModify = new JDialogModifyCroop(this);
 		reportHarv = new ReportTypeCropVsAreaHarv(this);
 		reportPlant = new ReportTypeCropVsAreaPlant(this);
 		reportCount = new ReportCountTypeCultive(this);
@@ -141,7 +144,7 @@ public class AppManager implements ActionListener{
 
 	private void manageChangeLanguage(){
 		frame.changeLanguage();
-		jDialog.changeLanguage();
+		jDialogAdd.changeLanguage();
 		reportCount.changeLanguage();
 		reportHarv.changeLanguage();
 		reportPlant.changeLanguage();
@@ -179,12 +182,16 @@ public class AppManager implements ActionListener{
 
 			break;
 		case CREATE_CROOP:
-			jDialog.newCrop();
+			jDialogAdd.newCrop();
 			addElementsToTable();
-			jDialog.setVisible(false);
+			jDialogAdd.setVisible(false);
 			break;
+		case MODIFY:
+			jDialogModify.modifyCroop();
+			addElementsToTable();
+			jDialogModify.setVisible(false);
 		case ADD_CROOP:
-			jDialog.setVisible(true);
+			jDialogAdd.setVisible(true);
 			break;
 		case EXPORT:
 			try {
@@ -213,8 +220,11 @@ public class AppManager implements ActionListener{
 			reportCount.dispose();
 			break;
 		case CANCEL:
-			jDialog.dispose();
+			jDialogAdd.dispose();
 			break;
+		case EDITE_CROOP:
+			jDialogModify.setVisible(true);
+			break;		
 		default:
 			break;
 		}

@@ -51,6 +51,8 @@ public class PanelAdmData extends JPanel{
 		delCrop.setBorder(new RoundBorder(10));
 		
 		editCrop.buttonTextIcon(ConstantsView.MODIFY, ConstantsLanguage.EDIT_CROP, Color.WHITE, true, ConstantsView.BAUHAUS_17_PLAIN, Color.DARK_GRAY);
+		editCrop.setActionCommand(Command.EDITE_CROOP.name());
+		editCrop.addActionListener(acl);
 		editCrop.setBorder(new RoundBorder(10));
 		
 		exportCrop.buttonTextIcon(ConstantsView.EXPORT, ConstantsLanguage.EXPORT, Color.WHITE, true, ConstantsView.BAUHAUS_17_PLAIN, Color.DARK_GRAY);
