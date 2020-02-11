@@ -7,6 +7,7 @@ import java.util.Locale;
 
 import org.json.simple.DeserializationException;
 
+import constants.ConstantsLanguage;
 import general.HandlerLanguage;
 import models.CropManager;
 import models.CropTransitory;
@@ -22,7 +23,7 @@ public class AppManager implements ActionListener{
 	private static final String NAME_FILE_CONFIG = "config.init";
 	private HandlerLanguage config = null;
 	private String languageDefault;
-	private PrinFrame frame;
+	private static PrinFrame frame;
 	private JDialogAddCrop jDialog;
 	public CropManager cropManager; 
 	public Manager fileM;
@@ -44,6 +45,17 @@ public class AppManager implements ActionListener{
 		for (int i = 0; i < CropManager.getListCropTr().size(); i++) {
 			CropTransitory crop = CropManager.getListCropTr().get(i);
 			frame.addElementToTable(crop.toObjectVector());
+		}
+	}
+	
+	public static void filterElemntsTable(String type) {
+			for (int i = 0; i < CropManager.getListCropTr().size(); i++) {
+				if(type.equals(HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.FRUITS))) {
+				CropTransitory crop = CropManager.getListCropTr().get(i);
+				if(crop.getStateProd().equals(HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.FRUITS))) {
+					frame.addElementsToTableFilter(crop.toObjectVector());
+				}
+			}
 		}
 	}
 
@@ -186,6 +198,7 @@ public class AppManager implements ActionListener{
 			reportPlant.setVisible(true);
 			break;
 		case REPORT_FILTER:
+			frame.changePanelFilter();
 			break;
 		case REPORT_COUNT:
 			reportCount.setVisible(true);

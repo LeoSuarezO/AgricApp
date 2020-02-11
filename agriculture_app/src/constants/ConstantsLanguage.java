@@ -34,6 +34,9 @@ public class ConstantsLanguage {
 	public static final String REP_TYPE_COUNT = "Report_Type_Count";
 	
 	public static final String ACCEPT ="Accept";
+	public static final String FRUITS = "Fruits";
+	public static final String GREEN = "Green";
+	public static final String SEEDS = "Seeds";
 	
 	//Table
 	public static final String HARV_AREA = "Harvested_area";
