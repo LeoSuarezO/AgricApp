@@ -8,12 +8,9 @@ import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
-import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JSpinner;
 import javax.swing.JTextField;
-import javax.swing.SpinnerNumberModel;
 
 import com.placeholder.PlaceHolder;
 
@@ -22,7 +19,6 @@ import constants.ConstantsView;
 import controller.Command;
 import general.HandlerLanguage;
 import models.CropManager;
-import models.CropTransitory;
 
 public class PanelPrinDelete extends JPanel{
 
@@ -50,9 +46,9 @@ public class PanelPrinDelete extends JPanel{
 	public void config(ActionListener acl) {
 		logo.setIcon(new ImageIcon(ConstantsView.BANNER));
 
-		setTextFieldConfig(txtIdCroop, ConstantsLanguage.ID_CROP_HOLD, ConstantsLanguage.Id);
+		setTextFieldConfig(txtIdCroop, ConstantsLanguage.ID_CROP_HOLD, ConstantsLanguage.ID_CROP);
 
-		btnAddCroop.buttonTextIcon(ConstantsView.ADD_WHITE, ConstantsLanguage.CREATE_CROP, ConstantsView.GREEN, false, ConstantsView.BAUHAUS_15, Color.WHITE);
+		btnAddCroop.buttonTextIcon(ConstantsView.ADD_WHITE, ConstantsLanguage.ACCEPT, ConstantsView.GREEN, false, ConstantsView.BAUHAUS_15, Color.WHITE);
 		btnAddCroop.addActionListener(acl);
 		btnAddCroop.setActionCommand(Command.DELETE.name());
 		btnAddCroop.setPreferredSize(new Dimension(200,45));
@@ -97,13 +93,15 @@ public class PanelPrinDelete extends JPanel{
 	}
 
 	public void deleteCrop() {
+		if(txtIdCroop.getText() != null) {
 		int idCroopModify = Integer.parseInt(txtIdCroop.getText());
 		CropManager.deleteCroop(idCroopModify);
+		}
 	}
 
 	public void changeLanguage() {
-		setTextFieldConfig(txtIdCroop, ConstantsLanguage.NAME_CROP_HOLD, ConstantsLanguage.CROP);
-		btnAddCroop.setText(HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.CREATE_CROP));
+		setTextFieldConfig(txtIdCroop, ConstantsLanguage.ID_CROP_HOLD, ConstantsLanguage.ID_CROP);
+		btnAddCroop.setText(HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.ACCEPT));
 		btnCancel.setText(HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.CANCEL));
 	}
 

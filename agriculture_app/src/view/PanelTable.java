@@ -32,7 +32,8 @@ public class PanelTable extends JPanel{
 		setBackground(Color.WHITE);
 		setFocusable(false);
 		
-		String[] headers = {HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.CROP), 
+		String[] headers = {HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.ID_CROP), 
+				HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.CROP), 
 				HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.TYPE_AL), 
 				HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.PRICE), 
 				HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.HARV_AREA),

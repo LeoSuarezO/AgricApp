@@ -4,8 +4,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
+
 import constants.ConstantsLanguage;
 import constants.ConstantsView;
 import general.HandlerLanguage;

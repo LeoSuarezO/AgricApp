@@ -56,6 +56,7 @@ public class PanelPrinDialAddCrop extends JPanel{
 		txtTons = new JSpinner();
 		btnCancel = new ConfigButton();
 		btnAddCroop = new ConfigButton();
+		idCrop = new JTextField();
 		logo = new JLabel();
 		config(acl);
 	}
@@ -168,6 +169,7 @@ public class PanelPrinDialAddCrop extends JPanel{
 		CropTransitory croopNew = new CropTransitory(Integer.parseInt(idCrop.getText()), txtNameCrop.getText(),txtCropArea.getText(), txtPlantingArea.getText(), txtTons.getValue().toString(), jcTypeCroop.getSelectedItem().toString(), txtPrice.getText(), txtCosts.getText());
 		CropManager.createCropTr(croopNew);
 	}
+	
 	
 	public void changeLanguage() {
 		jcTypeCroop.setBorder(BorderFactory.createTitledBorder(BorderFactory.createMatteBorder (10, 10, 10, 10, Color.WHITE), HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.TYPE_AL)));

@@ -25,6 +25,7 @@ public class PanelPrin extends JPanel{
 	private JLabel lblImage;
 	private PanelReports panelReport;
 	private PanelReportFilter panelFilter;
+	private PanelHome panelHome;
 
 	public PanelPrin(ActionListener acl, ItemListener itl) {
 		setLayout(new BorderLayout());
@@ -44,6 +45,7 @@ public class PanelPrin extends JPanel{
 		panelAdmData = new PanelAdmData(acl);
 		panelReport = new PanelReports(acl);
 		panelFilter = new PanelReportFilter(itl);
+		panelHome = new PanelHome();
 		config();
 	}
 

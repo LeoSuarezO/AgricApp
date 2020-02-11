@@ -25,6 +25,9 @@ public class ConstantsView {
 	public static final String EXPORT = "images/export.png";
 	public static final String SUCCES = "images/succes.png";
 	public static final String REPORT_S = "images/report.png";
+	public static final String ONE = "images/one.png";
+	public static final String TWO = "images/two.png";
+	public static final String THREE = "images/three.png";
 	public static final String NULL = " ";
 	
 	public static final Color GREEN = new Color(203, 229, 88);
