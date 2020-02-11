@@ -86,7 +86,7 @@ public class Manager {
 			stateProd = jsonCrop.getString("consolidado_evaluacion_ano_2013_del_produc");
 			priceProd = jsonCrop.getString("consolidado_evaluacion_ano_2013_estado_precio_al_producr_ton");
 			costs = jsonCrop.getString("consolidado_evaluacion_ano_2013_costos_de_produc_ha");
-			CropTransitory croopAdd = new CropTransitory(crop, harvestedArea, plantedArea, tons, stateProd, priceProd, costs);
+			CropTransitory croopAdd = new CropTransitory(i, crop, harvestedArea, plantedArea, tons, stateProd, priceProd, costs);
 			count++;
 			CropManager.createCropTr(croopAdd);
 			croopAdd.setIdCroop(count);

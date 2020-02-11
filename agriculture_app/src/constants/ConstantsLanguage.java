@@ -17,12 +17,13 @@ public class ConstantsLanguage {
 	public static final String COST_SALE_HOLD =    "Cost_hold";
 	public static final String STATE_HOLD =    "type croop";
 	
-	public static final String CREATE_CROP = "Acept_crop";
+	public static final String CREATE_CROP = "Add_crop";
 	public static final String CANCEL = "Cancel";
 	public static final String DEL_CROP = "Del_crop";
 	public static final String EDIT_CROP = "Edit_crop";
 	public static final String EXPORT = "Export";
 	public static final String SUCCES_DATA = "Succes_data";
+	public static final String ID_CROP = "Id_crop";
 	
 	public static final String HOME = "Home";
 	public static final String DATA = "Data";

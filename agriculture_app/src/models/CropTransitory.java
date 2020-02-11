@@ -11,7 +11,7 @@ public class CropTransitory {
 	private String costs;
 	public int idCroop;
 
-	public CropTransitory(String crop, String harvestedArea, String plantedArea, String tons, String stateProd, String priceProd, String costs) {
+	public CropTransitory(int id, String crop, String harvestedArea, String plantedArea, String tons, String stateProd, String priceProd, String costs) {
 		this.crop = crop;
 		this.harvestedArea = harvestedArea;
 		this.plantedArea = plantedArea;
@@ -19,6 +19,7 @@ public class CropTransitory {
 		this.stateProd = stateProd;
 		this.priceProd = priceProd;
 		this.costs = costs;
+		this.idCroop = id;
 	}
 	public int getIdCroop() {
 		return idCroop;
@@ -28,7 +29,7 @@ public class CropTransitory {
 	}
 
 	public Object[] toObjectVector(){
-		return new Object[] {crop, stateProd, priceProd, harvestedArea, plantedArea, costs, tons};
+		return new Object[] {idCroop, crop, stateProd, priceProd, harvestedArea, plantedArea, costs, tons};
 	}
 
 	public String getCrop() {
@@ -87,16 +88,4 @@ public class CropTransitory {
 	public void setCosts(String costs) {
 		this.costs = costs;
 	}
-
-	public String toString() {
-		return "id: " +  idCroop + "\n" +
-				"nombre cultivo: " +  crop + "\n" + 
-				"tipo cultivo: " +  stateProd + "\n" +
-				"precio" +  priceProd + "\n" +
-				"area cosecha: " +  harvestedArea + "\n" +
-				"area siembra: " +  plantedArea + "\n" +
-				"costo: " +  costs + "\n" +
-				"toneladas: " +  tons + "\n" ;
-	}
-
 }

@@ -39,6 +39,7 @@ public class PanelPrinDialAddCrop extends JPanel{
 	private ConfigButton btnCancel;
 	private JLabel logo;
 	private PlaceHolder holder;
+	private JTextField idCrop;
 	
 	public PanelPrinDialAddCrop(ActionListener acl) {
 		setBackground(Color.WHITE);
@@ -66,6 +67,7 @@ public class PanelPrinDialAddCrop extends JPanel{
 		jcTypeCroop.setBorder(BorderFactory.createTitledBorder(BorderFactory.createMatteBorder (10, 10, 10, 10, Color.WHITE), HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.TYPE_AL)));
 		jcTypeCroop.setBackground(Color.WHITE);
 		
+		setTextFieldConfig(idCrop, ConstantsLanguage.ID_CROP_HOLD, ConstantsLanguage.ID_CROP);
 		setTextFieldConfig(txtNameCrop, ConstantsLanguage.NAME_CROP_HOLD, ConstantsLanguage.CROP);
 		setTextFieldConfig(txtPrice, ConstantsLanguage.PRICE_CROP_HOLD, ConstantsLanguage.PRICE);
 		setTextFieldConfig(txtCropArea, ConstantsLanguage.HARVESTED_AREA_HOLD, ConstantsLanguage.HARV_AREA);
@@ -100,10 +102,15 @@ public class PanelPrinDialAddCrop extends JPanel{
 		gbc.gridx = 0;
 		gbc.gridy =1;
 		gbc.gridwidth =2;
+		this.add(idCrop,gbc);
+		
+		gbc.gridx = 0;
+		gbc.gridy =2;
+		gbc.gridwidth =2;
 		this.add(txtNameCrop,gbc);
 
 		gbc.gridx = 0;
-		gbc.gridy =2;
+		gbc.gridy =3;
 		gbc.gridwidth =2;
 		jcTypeCroop.addItem("P-VERDE");
 		jcTypeCroop.addItem("G-SECO");
@@ -116,37 +123,37 @@ public class PanelPrinDialAddCrop extends JPanel{
 
 		gbc.gridx =0;
 		gbc.gridwidth =2;
-		gbc.gridy =3;
-		this.add(txtPrice,gbc);
-
-		gbc.gridx =0;
 		gbc.gridy =4;
-		gbc.gridwidth =2;
-		this.add(txtCropArea,gbc);
+		this.add(txtPrice,gbc);
 
 		gbc.gridx =0;
 		gbc.gridy =5;
 		gbc.gridwidth =2;
-		this.add(txtPlantingArea,gbc);
+		this.add(txtCropArea,gbc);
 
 		gbc.gridx =0;
 		gbc.gridy =6;
 		gbc.gridwidth =2;
-		this.add(txtCosts,gbc);
+		this.add(txtPlantingArea,gbc);
 
 		gbc.gridx =0;
 		gbc.gridy =7;
 		gbc.gridwidth =2;
-		this.add(txtTons,gbc);
+		this.add(txtCosts,gbc);
 
 		gbc.gridx =0;
 		gbc.gridy =8;
+		gbc.gridwidth =2;
+		this.add(txtTons,gbc);
+
+		gbc.gridx =0;
+		gbc.gridy =9;
 		gbc.gridwidth =1;
 		this.add(btnAddCroop,gbc);
 
 		gbc.gridx =1;
 		gbc.gridwidth =1;
-		gbc.gridy =9;
+		gbc.gridy =10;
 		this.add(btnCancel,gbc);
 	}
 	
@@ -157,8 +164,8 @@ public class PanelPrinDialAddCrop extends JPanel{
 	}
 	
 	public void newCrop() {
-		CropManager.newCrops(txtNameCrop.getText(),txtCropArea.getText(), txtPlantingArea.getText(), txtTons.getValue().toString(), jcTypeCroop.getSelectedItem().toString(), txtPrice.getText(), txtCosts.getText());
-		CropTransitory croopNew = new CropTransitory(txtNameCrop.getText(),txtCropArea.getText(), txtPlantingArea.getText(), txtTons.getValue().toString(), jcTypeCroop.getSelectedItem().toString(), txtPrice.getText(), txtCosts.getText());
+		CropManager.newCrops(Integer.parseInt(idCrop.getText()), txtNameCrop.getText(),txtCropArea.getText(), txtPlantingArea.getText(), txtTons.getValue().toString(), jcTypeCroop.getSelectedItem().toString(), txtPrice.getText(), txtCosts.getText());
+		CropTransitory croopNew = new CropTransitory(Integer.parseInt(idCrop.getText()), txtNameCrop.getText(),txtCropArea.getText(), txtPlantingArea.getText(), txtTons.getValue().toString(), jcTypeCroop.getSelectedItem().toString(), txtPrice.getText(), txtCosts.getText());
 		CropManager.createCropTr(croopNew);
 	}
 	

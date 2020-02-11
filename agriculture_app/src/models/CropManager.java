@@ -30,8 +30,8 @@ public class CropManager {
 		}
 	}
 
-	public static void newCrops(String crop, String harvestedArea, String plantedArea, String tons, String stateProd, String priceProd, String costs) {
-		listNewCrops.add(new CropTransitory(crop, harvestedArea, plantedArea, tons, stateProd, priceProd, costs));
+	public static void newCrops(int id, String crop, String harvestedArea, String plantedArea, String tons, String stateProd, String priceProd, String costs) {
+		listNewCrops.add(new CropTransitory(id, crop, harvestedArea, plantedArea, tons, stateProd, priceProd, costs));
 	}
 
 	public void deleteCroop(int idCroop) {

@@ -68,7 +68,7 @@ public class PanelPrinDiamodifyCroop extends JPanel{
 		jcTypeCroop.setBorder(BorderFactory.createTitledBorder(BorderFactory.createMatteBorder (10, 10, 10, 10, Color.WHITE), HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.TYPE_AL)));
 		jcTypeCroop.setBackground(Color.WHITE);
 
-		setTextFieldConfig(txtIdCrop, ConstantsLanguage.ID_CROP_HOLD, ConstantsLanguage.Id);
+		setTextFieldConfig(txtIdCrop, ConstantsLanguage.ID_CROP_HOLD, ConstantsLanguage.ID_CROP);
 		setTextFieldConfig(txtNameCrop, ConstantsLanguage.NAME_CROP_HOLD, ConstantsLanguage.CROP);
 		setTextFieldConfig(txtPrice, ConstantsLanguage.PRICE_CROP_HOLD, ConstantsLanguage.PRICE);
 		setTextFieldConfig(txtCropArea, ConstantsLanguage.HARVESTED_AREA_HOLD, ConstantsLanguage.HARV_AREA);
@@ -166,7 +166,7 @@ public class PanelPrinDiamodifyCroop extends JPanel{
 
 	public void modifyCroop() {
 		int idCroopModify = Integer.parseInt(txtIdCrop.getText());
-		CropTransitory croopNew = new CropTransitory(txtNameCrop.getText(),txtCropArea.getText(), txtPlantingArea.getText(), txtTons.getValue().toString(), jcTypeCroop.getSelectedItem().toString(), txtPrice.getText(), txtCosts.getText());
+		CropTransitory croopNew = new CropTransitory(Integer.parseInt(txtIdCrop.getText()), 11txtNameCrop.getText(),txtCropArea.getText(), txtPlantingArea.getText(), txtTons.getValue().toString(), jcTypeCroop.getSelectedItem().toString(), txtPrice.getText(), txtCosts.getText());
 		CropManager.modifyCroop(croopNew,idCroopModify);
 	}
 
