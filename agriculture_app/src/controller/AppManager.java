@@ -197,6 +197,7 @@ public class AppManager implements ActionListener, ItemListener{
 			jDialogDelete.deleteCroop();
 			addElementsToTable();
 			jDialogDelete.setVisible(false);
+			break;
 		case ADD_CROOP:
 			jDialogAdd.setVisible(true);
 			break;
@@ -209,6 +210,7 @@ public class AppManager implements ActionListener, ItemListener{
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
+			
 		case REPORTS:
 			changePanelReport();
 			break;
