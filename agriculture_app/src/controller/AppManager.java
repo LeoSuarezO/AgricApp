@@ -14,7 +14,7 @@ import models.CropTransitory;
 import persistence.Manager;
 import view.JDialogAddCrop;
 import view.PrinFrame;
-import view.ReportConutTypeCultive;
+import view.ReportCountTypeCultive;
 import view.ReportTypeCropVsAreaHarv;
 import view.ReportTypeCropVsAreaPlant;
 
@@ -29,7 +29,7 @@ public class AppManager implements ActionListener{
 	public Manager fileM;
 	private ReportTypeCropVsAreaHarv reportHarv;
 	private ReportTypeCropVsAreaPlant reportPlant;
-	private ReportConutTypeCultive reportCount;
+	private ReportCountTypeCultive reportCount;
 
 	public AppManager() throws DeserializationException, IOException {
 		loadConfiguration();
@@ -38,8 +38,13 @@ public class AppManager implements ActionListener{
 		jDialog = new JDialogAddCrop(this);
 		reportHarv = new ReportTypeCropVsAreaHarv(this);
 		reportPlant = new ReportTypeCropVsAreaPlant(this);
-		reportCount = new ReportConutTypeCultive(this);
+		reportCount = new ReportCountTypeCultive(this);
+		for (int i = 0; i < CropManager.getListCropTr().size(); i++) {
+			System.out.println(CropManager.getListCropTr().get(i));
+		}
 	}
+
+
 
 	public void addElementsToTable() {
 		for (int i = 0; i < CropManager.getListCropTr().size(); i++) {
@@ -66,7 +71,7 @@ public class AppManager implements ActionListener{
 	public void changePanelAdm() {
 		frame.changePanelAdm();
 	}
-	
+
 	public String getLanguageDefault(){
 		languageDefault = Locale.getDefault().getLanguage();
 		switch (languageDefault) {
@@ -141,19 +146,18 @@ public class AppManager implements ActionListener{
 		reportHarv.changeLanguage();
 		reportPlant.changeLanguage();
 	}
-	
 
 	public void changePanelReport() {
 		frame.changePanelReport();
 	}
-	
+
 	public void exportNewCrops() throws IOException {
 		fileM.writeNewCrops();
 		frame.succes();
 	}
-	
+
 	public void accept() {
-		
+
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -172,7 +176,7 @@ public class AppManager implements ActionListener{
 			changePanelAdm();
 			break;
 		case HOME:
-			
+
 			break;
 		case CREATE_CROOP:
 			jDialog.newCrop();
