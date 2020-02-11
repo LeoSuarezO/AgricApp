@@ -61,6 +61,10 @@ public class TableFilter extends JPanel{
 		this.setBorder(null);
 		
 	}
+	
+	public void clearTable() {
+		while(dtmElements.getRowCount()>0) dtmElements.removeRow(0);
+	}
 
 	public void addElementToTable(Object[] vector){
 		dtmElements.addRow(vector);

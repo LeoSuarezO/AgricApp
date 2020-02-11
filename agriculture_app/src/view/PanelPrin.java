@@ -3,6 +3,8 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemListener;
+
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -24,14 +26,14 @@ public class PanelPrin extends JPanel{
 	private PanelReports panelReport;
 	private PanelReportFilter panelFilter;
 
-	public PanelPrin(ActionListener acl) {
+	public PanelPrin(ActionListener acl, ItemListener itl) {
 		setLayout(new BorderLayout());
 		setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
 		setBackground(ConstantsView.GREEN);
-		init(acl);
+		init(acl, itl);
 	}
 
-	public void init(ActionListener acl) {
+	public void init(ActionListener acl, ItemListener itl) {
 		panelNorth = new JPanel();
 		panelL = new PanelNorth(acl);
 		menu = new MenuBar(acl);
@@ -41,7 +43,7 @@ public class PanelPrin extends JPanel{
 		panelF = new PanelFooter(acl);
 		panelAdmData = new PanelAdmData(acl);
 		panelReport = new PanelReports(acl);
-		panelFilter = new PanelReportFilter();
+		panelFilter = new PanelReportFilter(itl);
 		config();
 	}
 
@@ -57,8 +59,13 @@ public class PanelPrin extends JPanel{
 		add(aux, BorderLayout.CENTER);
 	}
 	
+	public void clearTable() {
+		panelFilter.clearTable();
+	}
+	
 	public void changePanleFilter() {
 		this.remove(aux);
+		panelFilter.clearTable();
 		aux = panelFilter;
 		add(panelFilter, BorderLayout.CENTER);
 	}
@@ -88,6 +95,10 @@ public class PanelPrin extends JPanel{
 	public void addElementToTable(Object [] obj) {
 		table.addElementToTable(obj);
 	}
+	
+	public String getSelecItemFilter() {
+		return panelFilter.getSelectedItem();
+	}
 
 	public void changeLanguage() {
 		panelL.changeLanguge();
@@ -96,6 +107,7 @@ public class PanelPrin extends JPanel{
 		panelF.changeLanguage();
 		panelAdmData.changeLanguage();
 		panelReport.changeLanguage();
+		panelFilter.changeLanguage();
 	}
 
 }

@@ -1,17 +1,13 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 
-import constants.ConstantsLanguage;
 import constants.ConstantsView;
-import controller.AppManager;
-import general.HandlerLanguage;
 
 public class PanelReportFilter extends JPanel{
 
@@ -23,31 +19,29 @@ public class PanelReportFilter extends JPanel{
 	private String [] types;
 	private TableFilter table;
 	
-	public PanelReportFilter() {
+	public PanelReportFilter(ItemListener itl) {
 		setLayout(new BorderLayout());
-		init();
+		init(itl);
 	}
 	
-	public void init() {
+	public void init(ItemListener itl) {
 		comboFilter = new JComboBox<String>();
-		types = new String [] {HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.FRUITS), HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.GREEN), HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.SEEDS)};
+		types = new String [] {"Fruta", "Verde", "Semilla"};
 		table = new TableFilter();
-		config();
+		config(itl);
 	}
 	
-	public void config() {
+	public void config(ItemListener itl) {
 		comboFilter.setModel(new DefaultComboBoxModel<String>(types));
 		comboFilter.setFont(ConstantsView.BAUHAUS_15_PLAIN);
 		comboFilter.setFocusable(false);
-		comboFilter.addItemListener(new ItemListener() {
-			
-			@Override
-			public void itemStateChanged(ItemEvent e) {
-				AppManager.filterElemntsTable(comboFilter.getSelectedItem().toString());
-			}
-		});
+		comboFilter.addItemListener(itl);
 		add(comboFilter, BorderLayout.NORTH);
 		add(table, BorderLayout.CENTER);
+	}
+	
+	public void clearTable() {
+		table.clearTable();
 	}
 	
 	public void addElementsToTable(Object [] obj) {
@@ -58,7 +52,6 @@ public class PanelReportFilter extends JPanel{
 		return comboFilter.getSelectedItem().toString();
 	}
 	public void changeLanguage() {
-		types = new String [] {HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.FRUITS), HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.GREEN), HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.SEEDS)};
 		table.changeLanguage();
 	}
 
