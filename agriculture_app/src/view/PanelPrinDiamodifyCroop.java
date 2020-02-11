@@ -166,7 +166,7 @@ public class PanelPrinDiamodifyCroop extends JPanel{
 
 	public void modifyCroop() {
 		int idCroopModify = Integer.parseInt(txtIdCrop.getText());
-		CropTransitory croopNew = new CropTransitory(Integer.parseInt(txtIdCrop.getText()), 11txtNameCrop.getText(),txtCropArea.getText(), txtPlantingArea.getText(), txtTons.getValue().toString(), jcTypeCroop.getSelectedItem().toString(), txtPrice.getText(), txtCosts.getText());
+		CropTransitory croopNew = new CropTransitory(Integer.parseInt(txtIdCrop.getText()), txtNameCrop.getText(),txtCropArea.getText(), txtPlantingArea.getText(), txtTons.getValue().toString(), jcTypeCroop.getSelectedItem().toString(), txtPrice.getText(), txtCosts.getText());
 		CropManager.modifyCroop(croopNew,idCroopModify);
 	}
 
