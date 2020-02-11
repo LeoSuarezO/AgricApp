@@ -14,6 +14,7 @@ import models.CropManager;
 import models.CropTransitory;
 import persistence.Manager;
 import view.JDialogAddCrop;
+import view.JDialogDeleteCroop;
 import view.JDialogModifyCroop;
 import view.PrinFrame;
 import view.ReportCountTypeCultive;
@@ -25,14 +26,10 @@ public class AppManager implements ActionListener, ItemListener{
 	private static final String NAME_FILE_CONFIG = "config.init";
 	private HandlerLanguage config = null;
 	private String languageDefault;
-//<<<<<<< HEAD
 	private static PrinFrame frame;
 	private JDialogAddCrop jDialogAdd;
 	private JDialogModifyCroop jDialogModify;
-//=======
-//	private PrinFrame frame;
-	private JDialogAddCrop jDialog;
-//>>>>>>> branch 'master' of https://github.com/LeoSuarezO/AgricApp.git
+	private JDialogDeleteCroop jDialogDelete;
 	public CropManager cropManager; 
 	public Manager fileM;
 	private ReportTypeCropVsAreaHarv reportHarv;
@@ -42,14 +39,11 @@ public class AppManager implements ActionListener, ItemListener{
 	public AppManager() throws DeserializationException, IOException {
 		loadConfiguration();
 		fileM = new Manager();
-//<<<<<<< HEAD
-//		frame = new PrinFrame(this);	
+
+		jDialogDelete = new JDialogDeleteCroop(this);
 		jDialogAdd = new JDialogAddCrop(this);
 		jDialogModify = new JDialogModifyCroop(this);
-//=======
 		frame = new PrinFrame(this, this);	
-		jDialog = new JDialogAddCrop(this);
-//>>>>>>> branch 'master' of https://github.com/LeoSuarezO/AgricApp.git
 		reportHarv = new ReportTypeCropVsAreaHarv(this);
 		reportPlant = new ReportTypeCropVsAreaPlant(this);
 		reportCount = new ReportCountTypeCultive(this);
@@ -61,7 +55,7 @@ public class AppManager implements ActionListener, ItemListener{
 			frame.addElementToTable(crop.toObjectVector());
 		}
 	}
-	
+
 
 	public void changePanelT() {
 		frame.changePanelT();
@@ -70,7 +64,7 @@ public class AppManager implements ActionListener, ItemListener{
 	public void changePanelAdm() {
 		frame.changePanelAdm();
 	}
-	
+
 	public String getLanguageDefault(){
 		languageDefault = Locale.getDefault().getLanguage();
 		switch (languageDefault) {
@@ -145,17 +139,17 @@ public class AppManager implements ActionListener, ItemListener{
 		reportHarv.changeLanguage();
 		reportPlant.changeLanguage();
 	}
-	
+
 
 	public void changePanelReport() {
 		frame.changePanelReport();
 	}
-	
+
 	public void exportNewCrops() throws IOException {
 		fileM.writeNewCrops();
 		frame.succes();
 	}
-	
+
 	public void accept() {
 		reportHarv.dispose();
 		reportPlant.dispose();
@@ -178,7 +172,7 @@ public class AppManager implements ActionListener, ItemListener{
 			changePanelAdm();
 			break;
 		case HOME:
-			
+
 			break;
 		case CREATE_CROOP:
 			jDialogAdd.newCrop();
@@ -189,8 +183,17 @@ public class AppManager implements ActionListener, ItemListener{
 			jDialogModify.modifyCroop();
 			addElementsToTable();
 			jDialogModify.setVisible(false);
+			break;
+		case DELETE:
+			jDialogDelete.deleteCroop();
+			addElementsToTable();
+			jDialogDelete.setVisible(false);
+			break;
 		case ADD_CROOP:
 			jDialogAdd.setVisible(true);
+			break;
+		case DELETE_CROOP:
+			jDialogDelete.setVisible(true);
 			break;
 		case EXPORT:
 			try {
@@ -198,6 +201,7 @@ public class AppManager implements ActionListener, ItemListener{
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
+
 		case REPORTS:
 			changePanelReport();
 			break;
@@ -216,8 +220,14 @@ public class AppManager implements ActionListener, ItemListener{
 		case ACCEPT:
 			accept();
 			break;
-		case CANCEL:
+		case CANCEL_ADD:
 			jDialogAdd.dispose();
+			break;
+		case CANCEL_DELETE:
+			jDialogDelete.dispose();
+			break;
+		case CANCEL_MODIFY:
+			jDialogModify.dispose();
 			break;
 		case EDITE_CROOP:
 			jDialogModify.setVisible(true);
@@ -227,26 +237,25 @@ public class AppManager implements ActionListener, ItemListener{
 		}
 	}
 
-	@Override
 	public void itemStateChanged(ItemEvent e) {
 		frame.changePanelFilter();
 		for (int i = 0; i < CropManager.getListCropTr().size(); i++) {
 			CropTransitory crop = CropManager.getListCropTr().get(i);
 			if(frame.getSelecItemFilter().equals("Fruta")) {
-					if(crop.getStateProd().equals("FRUTA")) {
-						frame.addElementsToTableFilter(crop.toObjectVector());
-					}
-				}
-				if(frame.getSelecItemFilter().equals("Verde")) {
-					if(crop.getStateProd().equals("VERDE")) {
-						frame.addElementsToTableFilter(crop.toObjectVector());
-					}
-				}
-				if(frame.getSelecItemFilter().equals("Semilla")) {
-					if(crop.getStateProd().equals("SEMILLA")) {
-						frame.addElementsToTableFilter(crop.toObjectVector());
-					}
+				if(crop.getStateProd().equals("FRUTA")) {
+					frame.addElementsToTableFilter(crop.toObjectVector());
 				}
 			}
+			if(frame.getSelecItemFilter().equals("Verde")) {
+				if(crop.getStateProd().equals("VERDE")) {
+					frame.addElementsToTableFilter(crop.toObjectVector());
+				}
+			}
+			if(frame.getSelecItemFilter().equals("Semilla")) {
+				if(crop.getStateProd().equals("SEMILLA")) {
+					frame.addElementsToTableFilter(crop.toObjectVector());
+				}
+			}
+		}
 	}	
 }

@@ -1,67 +1,41 @@
 package view;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-
+import constants.ConstantsLanguage;
 import constants.ConstantsView;
+import general.HandlerLanguage;
 
 public class JDialogDeleteCroop extends JDialog{
 
 	private static final long serialVersionUID = 1L;
-	private JTextField txtIdCroop;
-	private ConfigButton btnAddCroop;
-	private ConfigButton btnCancel;
-	private JLabel logo;
-	
-	public JDialogDeleteCroop() {
-		setBackground(Color.WHITE);
-		setPreferredSize(new Dimension(300,200));
-		addComponents();
-		init();
-	}
-	
-	private void addComponents() {
-		txtIdCroop = new JTextField();
-		btnCancel = new ConfigButton();
-		logo = new JLabel();
-		btnAddCroop = new ConfigButton();
-	}
-	
-	private void init() {
-		GridBagConstraints gbc = new GridBagConstraints();
-		
-		gbc.fill = GridBagConstraints.VERTICAL;
-		gbc.gridx =0;
-		gbc.gridwidth =2;
-		gbc.gridy =0;
-		gbc.insets = new Insets(5, 5, 5, 5);
-		this.add(logo,gbc);
-		
-		gbc.gridx =0;
-		gbc.gridwidth =2;
-		gbc.gridy =1;
-		this.add(txtIdCroop,gbc);
-		
-		gbc.gridx =0;
-		gbc.gridy =2;
-		gbc.gridwidth =1;
-		this.add(btnAddCroop,gbc);
+	private PanelPrinDelete panel;
 
-		gbc.gridx =1;
-		gbc.gridwidth =1;
-		gbc.gridy =2;
-		this.add(btnCancel,gbc);
-	}
-	private void configComponents() {
-		logo.setIcon(new ImageIcon(ConstantsView.BANNER));
 
+	public JDialogDeleteCroop(ActionListener acl) {
+		setTitle(HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.APP_NAME)+"-"+HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.CREATE_CROP));
+		setIconImage(new ImageIcon(ConstantsView.LOGO_APP).getImage());
+		setSize( 550, 700 );
+		setResizable(false);
+		initComponents(acl);
+		setContentPane(panel);
+		setModal(true);
 	}
 
+	private void initComponents(ActionListener acl) {
+		panel = new PanelPrinDelete(acl);
+	}
+	
+	public void changeLanguage() {
+		setTitle(HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.APP_NAME)+"-"+HandlerLanguage.languageProperties.getProperty(ConstantsLanguage.CREATE_CROP));
+		panel.changeLanguage();
+	}
+	
+	public void deleteCroop() {
+		panel.deleteCrop();
+	}
 }
