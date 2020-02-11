@@ -113,6 +113,7 @@ public class PanelPrinDialAddCrop extends JPanel{
 		jcTypeCroop.addItem("VERDE");
 		jcTypeCroop.addItem("SEMILLA");
 		jcTypeCroop.addItem("H-SECA");
+		jcTypeCroop.addItem("Fruta");
 		this.add(jcTypeCroop,gbc);
 
 		gbc.gridx =0;

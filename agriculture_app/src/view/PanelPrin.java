@@ -22,6 +22,7 @@ public class PanelPrin extends JPanel{
 	private PanelAdmData panelAdmData;
 	private JLabel lblImage;
 	private PanelReports panelReport;
+	private PanelReportFilter panelFilter;
 
 	public PanelPrin(ActionListener acl) {
 		setLayout(new BorderLayout());
@@ -40,6 +41,7 @@ public class PanelPrin extends JPanel{
 		panelF = new PanelFooter(acl);
 		panelAdmData = new PanelAdmData(acl);
 		panelReport = new PanelReports(acl);
+		panelFilter = new PanelReportFilter();
 		config();
 	}
 
@@ -53,6 +55,12 @@ public class PanelPrin extends JPanel{
 		add(panelF, BorderLayout.SOUTH);
 		add(panelNorth, BorderLayout.NORTH);
 		add(aux, BorderLayout.CENTER);
+	}
+	
+	public void changePanleFilter() {
+		this.remove(aux);
+		aux = panelFilter;
+		add(panelFilter, BorderLayout.CENTER);
 	}
 
 	public void changePanelT() {
@@ -71,6 +79,10 @@ public class PanelPrin extends JPanel{
 		this.remove(aux);
 		aux = panelReport;
 		add(panelReport, BorderLayout.CENTER);
+	}
+	
+	public void addElemntsToTableFilter(Object [] obj) {
+		panelFilter.addElementsToTable(obj);
 	}
 	
 	public void addElementToTable(Object [] obj) {

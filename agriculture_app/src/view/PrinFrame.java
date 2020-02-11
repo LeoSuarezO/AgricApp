@@ -33,6 +33,12 @@ public class PrinFrame extends JFrame{
 		add(scroll);
 	}
 	
+	public void changePanelFilter() {
+		panel.changePanleFilter();
+		this.pack();
+		setExtendedState(MAXIMIZED_BOTH);
+	}
+	
 	public void changePanelT() {
 		panel.changePanelT();
 		this.pack();
@@ -63,6 +69,10 @@ public class PrinFrame extends JFrame{
 	
 	public void addElementToTable(Object [] obj) {
 		panel.addElementToTable(obj);
+	}
+	
+	public void addElementsToTableFilter(Object [] obj) {
+		panel.addElemntsToTableFilter(obj);
 	}
 	
 }

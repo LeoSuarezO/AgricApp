@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Font;
 
 import javax.swing.ImageIcon;
@@ -18,6 +19,7 @@ public class ConfigButton extends JButton{
 		setBorderPainted(borderPainted);
 		setBackground(background);
 		setIcon(new ImageIcon(path));
+		setCursor(new Cursor(Cursor.HAND_CURSOR));
 	}
 
 	public void buttonTextIcon(String path, String text, Color background, boolean borderPainted, Font font, Color foreground) {
@@ -27,6 +29,7 @@ public class ConfigButton extends JButton{
 		setFocusable(false);
 		setBorderPainted(borderPainted);
 		setText(HandlerLanguage.languageProperties.getProperty(text));
+		setCursor(new Cursor(Cursor.HAND_CURSOR));
 		if(!path.equals(ConstantsView.NULL)) setIcon(new ImageIcon(path));
 	}
 
@@ -38,5 +41,6 @@ public class ConfigButton extends JButton{
 		setBorderPainted(true);
 		setBorder(null);
 		setForeground(Color.BLACK);
+		setCursor(new Cursor(Cursor.HAND_CURSOR));
 	}
 }
