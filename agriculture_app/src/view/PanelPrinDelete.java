@@ -58,7 +58,7 @@ public class PanelPrinDelete extends JPanel{
 		btnAddCroop.setPreferredSize(new Dimension(200,45));
 
 		btnCancel.buttonTextIcon(ConstantsView.CANCEL, ConstantsLanguage.CANCEL, Color.RED, false, ConstantsView.BAUHAUS_15, Color.WHITE);
-		btnCancel.setActionCommand(Command.CANCEL.name());
+		btnCancel.setActionCommand(Command.CANCEL_DELETE.name());
 		btnCancel.addActionListener(acl);
 		btnCancel.setPreferredSize(new Dimension(200,45));
 		addComp();

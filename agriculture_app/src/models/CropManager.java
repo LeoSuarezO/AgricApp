@@ -42,7 +42,6 @@ public class CropManager {
 		}
 	}
 
-
 	public static  ArrayList<CropTransitory> getListCropTr() {
 		return listCropTr;
 	}
